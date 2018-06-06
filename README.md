@@ -6,4 +6,4 @@ Step 1- Install OpenCV
 
 Step 2: Camera Callibration
 
-Step 3; GUI Design
+Step 3: GUI Design
