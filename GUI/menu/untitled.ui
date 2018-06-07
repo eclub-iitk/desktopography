@@ -59,7 +59,9 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border:none</string>
+     <string notr="true">border:none;
+border-radius: 6px;
+</string>
     </property>
     <property name="text">
      <string>...</string>
@@ -85,7 +87,8 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border:none
+     <string notr="true">border:none;
+border-radius: 6px;
 </string>
     </property>
     <property name="text">
@@ -112,7 +115,9 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border:none</string>
+     <string notr="true">border:none;
+border-radius: 6px;
+</string>
     </property>
     <property name="text">
      <string>...</string>
@@ -144,7 +149,8 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border:none
+     <string notr="true">border:none;
+border-radius: 6px;
 </string>
     </property>
     <property name="text">
@@ -171,7 +177,8 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border:none
+     <string notr="true">border:none;
+border-radius: 6px;
 </string>
     </property>
     <property name="text">
@@ -198,7 +205,8 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border:none
+     <string notr="true">border:none;
+border-radius: 6px;
 </string>
     </property>
     <property name="text">
