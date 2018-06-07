@@ -171,7 +171,8 @@ border-radius:8px;
 background-color: transparent;
 
 color:rgb(46, 52, 54);
-}</string>
+}
+</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -183,7 +184,7 @@ color:rgb(46, 52, 54);
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>300</y>
+      <y>190</y>
       <width>201</width>
       <height>201</height>
      </rect>
@@ -193,10 +194,13 @@ color:rgb(46, 52, 54);
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>250</y>
+      <y>90</y>
       <width>161</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(245, 121, 0);</string>
     </property>
     <property name="value">
      <number>24</number>
@@ -206,7 +210,7 @@ color:rgb(46, 52, 54);
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>300</y>
+      <y>190</y>
       <width>201</width>
       <height>201</height>
      </rect>
@@ -216,10 +220,13 @@ color:rgb(46, 52, 54);
     <property name="geometry">
      <rect>
       <x>290</x>
-      <y>250</y>
+      <y>90</y>
       <width>161</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(245, 121, 0);</string>
     </property>
     <property name="value">
      <number>24</number>
@@ -229,7 +236,7 @@ color:rgb(46, 52, 54);
     <property name="geometry">
      <rect>
       <x>510</x>
-      <y>300</y>
+      <y>190</y>
       <width>201</width>
       <height>201</height>
      </rect>
@@ -239,13 +246,73 @@ color:rgb(46, 52, 54);
     <property name="geometry">
      <rect>
       <x>530</x>
-      <y>250</y>
+      <y>90</y>
       <width>161</width>
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(245, 121, 0);</string>
+    </property>
     <property name="value">
      <number>24</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>410</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:rgb(46, 52, 54);
+font: 75 30pt &quot;AnjaliOldLipi&quot;;
+text-align: center;
+</string>
+    </property>
+    <property name="text">
+     <string>Fan 1</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>410</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:rgb(46, 52, 54);
+font: 75 30pt &quot;AnjaliOldLipi&quot;;
+text-align: center;
+</string>
+    </property>
+    <property name="text">
+     <string>Fan 2</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>410</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:rgb(46, 52, 54);
+font: 75 30pt &quot;AnjaliOldLipi&quot;;
+text-align: center;
+</string>
+    </property>
+    <property name="text">
+     <string>Fan 3</string>
     </property>
    </widget>
   </widget>
