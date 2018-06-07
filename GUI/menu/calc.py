@@ -667,7 +667,7 @@ class Ui_MainWindow(object):
                 self.textEdit.setText(c)
         elif b.text() == "/":
                 c = b.text()
-                num1
+                num=1
                 self.textEdit.clear()
                 self.textEdit.setText(c)
 
@@ -682,6 +682,23 @@ class Ui_MainWindow(object):
                 num=1
                 self.textEdit.clear()
                 self.textEdit.setText(c)
+
+        elif b.text() == ".":
+            d=self.textEdit.toPlainText()
+            if num == 0:
+                if float(d[0:]) == int(d[0:]):
+                    d=self.textEdit.toPlainText()+ b.text()
+                    self.textEdit.setText(d)
+
+                else:
+                    self,textEdit.setText(d)
+            else :
+                if float(d[1:]) == int(d[1:]):
+                    d=self.textEdit.toPlainText()+ b.text()
+                    self.textEdit.setText(d)
+
+                else:
+                    self,textEdit.setText(d)
 
 
         else:
