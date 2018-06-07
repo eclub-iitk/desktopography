@@ -1,0 +1,961 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>300</width>
+    <height>380</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>300</width>
+    <height>380</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>300</width>
+    <height>380</height>
+   </size>
+  </property>
+  <property name="cursor">
+   <cursorShape>PointingHandCursor</cursorShape>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normalon>Calculator-icon.png</normalon>
+   </iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:  #2e3436;</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="pushButton_15">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>200</y>
+      <width>51</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Serif</family>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+      <underline>false</underline>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 20pt &quot;Serif&quot;;
+border:none;
+border-radius:8px;
+background-color: rgb(46, 52, 54);
+color:rgb(255, 255, 255);
+}
+
+QPushButton:pressed {
+	
+	
+	border:5px
+}
+QPushButton:hover{
+   background-color: rgb(245, 121, 0);
+	color:rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string>4</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_16">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>200</y>
+      <width>51</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Serif</family>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+      <underline>false</underline>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 20pt &quot;Serif&quot;;
+border:none;
+border-radius:8px;
+background-color: rgb(46, 52, 54);
+color:rgb(255, 255, 255);
+}
+
+QPushButton:pressed {
+	
+	
+	border:5px
+}
+QPushButton:hover{
+   background-color: rgb(245, 121, 0);
+	color:rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string>5</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_17">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>260</y>
+      <width>51</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Serif</family>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 20pt &quot;Serif&quot;;
+border:none;
+border-radius:8px;
+background-color: rgb(46, 52, 54);
+color:rgb(255, 255, 255);
+}
+
+QPushButton:pressed {
+	
+	
+	border:5px
+}
+QPushButton:hover{
+   background-color: rgb(245, 121, 0);
+	color:rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string>1</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_19">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>320</y>
+      <width>51</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Serif</family>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 20pt &quot;Serif&quot;;
+border:none;
+border-radius:8px;
+background-color: rgb(46, 52, 54);
+color:rgb(255, 255, 255);
+}
+
+QPushButton:pressed {
+	
+	
+	border:5px
+}
+QPushButton:hover{
+   background-color: rgb(245, 121, 0);
+	color:rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string>.</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_20">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>320</y>
+      <width>51</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Serif</family>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 20pt &quot;Serif&quot;;
+border:none;
+border-radius:8px;
+background-color: rgb(46, 52, 54);
+color:rgb(255, 255, 255);
+}
+
+QPushButton:pressed {
+	
+	
+	border:5px
+}
+QPushButton:hover{
+   background-color: rgb(245, 121, 0);
+	color:rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_22">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>260</y>
+      <width>51</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Serif</family>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 20pt &quot;Serif&quot;;
+border:none;
+border-radius:8px;
+background-color: rgb(46, 52, 54);
+color:rgb(255, 255, 255);
+}
+
+QPushButton:pressed {
+	
+	
+	border:5px
+}
+QPushButton:hover{
+   background-color: rgb(245, 121, 0);
+	color:rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string>2</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_23">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>320</y>
+      <width>51</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Serif</family>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 20pt &quot;Serif&quot;;
+border:none;
+border-radius:8px;
+background-color: rgb(46, 52, 54);
+color:rgb(255, 255, 255);
+}
+
+QPushButton:pressed {
+	
+	
+	border:5px
+}
+QPushButton:hover{
+   background-color: rgb(245, 121, 0);
+	color:rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string>CE</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_24">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>260</y>
+      <width>51</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Serif</family>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 20pt &quot;Serif&quot;;
+border:none;
+border-radius:8px;
+background-color: rgb(46, 52, 54);
+color:rgb(255, 255, 255);
+}
+
+QPushButton:pressed {
+	
+	
+	border:5px
+}
+QPushButton:hover{
+   background-color: rgb(245, 121, 0);
+	color:rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string>3</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_25">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>140</y>
+      <width>51</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Serif</family>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 20pt &quot;Serif&quot;;
+border:none;
+border-radius:8px;
+background-color: rgb(46, 52, 54);
+color:rgb(255, 255, 255);
+}
+
+QPushButton:pressed {
+	
+	
+	border:5px
+}
+QPushButton:hover{
+   background-color: rgb(245, 121, 0);
+	color:rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string>7</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_26">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>140</y>
+      <width>51</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Serif</family>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+      <underline>false</underline>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 20pt &quot;Serif&quot;;
+border:none;
+border-radius:8px;
+background-color: rgb(46, 52, 54);
+color:rgb(255, 255, 255);
+}
+
+QPushButton:pressed {
+	
+	
+	border:5px
+}
+QPushButton:hover{
+   background-color: rgb(245, 121, 0);
+	color:rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string>8</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_27">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>140</y>
+      <width>51</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Serif</family>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+      <underline>false</underline>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 20pt &quot;Serif&quot;;
+border:none;
+border-radius:8px;
+background-color: rgb(46, 52, 54);
+color:rgb(255, 255, 255);
+}
+
+QPushButton:pressed {
+	
+	
+	border:5px
+}
+QPushButton:hover{
+   background-color: rgb(245, 121, 0);
+	color:rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string>9</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_28">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>320</y>
+      <width>51</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Serif</family>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 20pt &quot;Serif&quot;;
+border:none;
+border-radius:8px;
+background-color:  #35372f;
+color:rgb(255, 255, 255);
+}
+
+QPushButton:pressed {
+	
+	
+	border:5px
+}
+QPushButton:hover{
+   background-color: rgb(245, 121, 0);
+	color:rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string>/</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_29">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>260</y>
+      <width>51</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Serif</family>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 20pt &quot;Serif&quot;;
+border:none;
+border-radius:8px;
+background-color:  #35372f;
+color:rgb(255, 255, 255);
+}
+
+QPushButton:pressed {
+	
+	
+	border:5px
+}
+QPushButton:hover{
+   background-color: rgb(245, 121, 0);
+	color:rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string>*</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_30">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>140</y>
+      <width>51</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Serif</family>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 20pt &quot;Serif&quot;;
+border:none;
+border-radius:8px;
+background-color:  #35372f;
+color:rgb(255, 255, 255);
+}
+
+QPushButton:pressed {
+	
+	
+	border:5px
+}
+QPushButton:hover{
+   background-color: rgb(245, 121, 0);
+	color:rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string>+</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+    <property name="shortcut">
+     <string>+</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_31">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>200</y>
+      <width>51</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Serif</family>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 20pt &quot;Serif&quot;;
+border:none;
+border-radius:8px;
+background-color:  #35372f;
+color:rgb(255, 255, 255);
+}
+
+QPushButton:pressed {
+	
+	
+	border:5px
+}
+QPushButton:hover{
+   background-color: rgb(245, 121, 0);
+	color:rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string>-</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_32">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>140</y>
+      <width>51</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Serif</family>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 20pt &quot;Serif&quot;;
+border:none;
+border-radius:8px;
+background-color:   #35372f;
+color:rgb(255, 255, 255);
+}
+
+QPushButton:pressed {
+	
+	
+	border:5px
+}
+QPushButton:hover{
+   background-color: rgb(245, 121, 0);
+	color:rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string>C</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_33">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>200</y>
+      <width>51</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Serif</family>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 20pt &quot;Serif&quot;;
+border:none;
+border-radius:8px;
+background-color:  #35372f;
+color:rgb(255, 255, 255);
+}
+
+QPushButton:pressed {
+	
+	
+	border:5px
+}
+QPushButton:hover{
+   background-color: rgb(245, 121, 0);
+	color:rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string>^</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_34">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>260</y>
+      <width>51</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Serif</family>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 20pt &quot;Serif&quot;;
+border:none;
+border-radius:8px;
+background-color:  #35372f;
+color:rgb(255, 255, 255);
+}
+
+QPushButton:pressed {
+	
+	
+	border:5px
+}
+QPushButton:hover{
+   background-color: rgb(245, 121, 0);
+	color:rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string>=</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="plainTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>281</width>
+      <height>75</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_35">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>200</y>
+      <width>51</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Serif</family>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 20pt &quot;Serif&quot;;
+border:none;
+border-radius:8px;
+background-color: rgb(46, 52, 54);
+color:rgb(255, 255, 255);
+}
+
+QPushButton:pressed {
+	
+	
+	border:5px
+}
+QPushButton:hover{
+   background-color: rgb(245, 121, 0);
+	color:rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string>6</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
