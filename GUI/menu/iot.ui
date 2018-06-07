@@ -39,14 +39,13 @@ color:rgb(46, 52, 54);
 }
 
 QPushButton:pressed {
-	
-	
 	border:5px
 }
 QPushButton:hover{
    background-color: rgb(46, 52, 54);
 	color:rgb(255, 255, 255);
 }
+
 
 
 </string>
@@ -149,9 +148,12 @@ text-align: center;
    </property>
   </widget>
   <widget class="QFrame" name="frame_2">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>319</x>
+     <x>320</x>
      <y>150</y>
      <width>751</width>
      <height>561</height>
@@ -161,6 +163,14 @@ text-align: center;
     <string notr="true">
 QFrame{background-color: rgb(238, 238, 236);
 border-radius:8px;
+}
+
+QDial{
+border:none;
+border-radius:8px;
+background-color: transparent;
+
+color:rgb(46, 52, 54);
 }</string>
    </property>
    <property name="frameShape">
@@ -172,101 +182,139 @@ border-radius:8px;
    <widget class="QDial" name="dial">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>220</y>
-      <width>171</width>
-      <height>171</height>
+      <x>10</x>
+      <y>300</y>
+      <width>201</width>
+      <height>201</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="progressBar">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>250</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>24</number>
     </property>
    </widget>
    <widget class="QDial" name="dial_2">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>220</y>
-      <width>171</width>
-      <height>171</height>
+      <x>270</x>
+      <y>300</y>
+      <width>201</width>
+      <height>201</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="progressBar_2">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>250</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>24</number>
     </property>
    </widget>
    <widget class="QDial" name="dial_3">
     <property name="geometry">
      <rect>
-      <x>540</x>
-      <y>220</y>
-      <width>171</width>
-      <height>171</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>140</y>
+      <x>510</x>
+      <y>300</y>
       <width>201</width>
-      <height>71</height>
+      <height>201</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">color:rgb(206, 92, 0);
-font: 75 20pt &quot;AnjaliOldLipi&quot;;
-text-align: center;
-</string>
-    </property>
-    <property name="text">
-     <string>Fan 1</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-    </property>
    </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>140</y>
-      <width>201</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color:rgb(206, 92, 0);
-font: 75 20pt &quot;AnjaliOldLipi&quot;;
-text-align: center;
-</string>
-    </property>
-    <property name="text">
-     <string>Fan 2</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QProgressBar" name="progressBar_3">
     <property name="geometry">
      <rect>
       <x>530</x>
-      <y>140</y>
-      <width>201</width>
-      <height>71</height>
+      <y>250</y>
+      <width>161</width>
+      <height>41</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">color:rgb(206, 92, 0);
-font: 75 20pt &quot;AnjaliOldLipi&quot;;
-text-align: center;
-</string>
-    </property>
-    <property name="text">
-     <string>Fan 3</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+    <property name="value">
+     <number>24</number>
     </property>
    </widget>
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>dial</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>progressBar</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>430</x>
+     <y>550</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>430</x>
+     <y>420</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dial_2</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>progressBar_2</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>690</x>
+     <y>550</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>690</x>
+     <y>420</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dial_3</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>progressBar_3</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>930</x>
+     <y>550</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>930</x>
+     <y>420</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>frame_2</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>209</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>695</x>
+     <y>430</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

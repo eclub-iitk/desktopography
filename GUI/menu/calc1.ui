@@ -180,7 +180,7 @@ QPushButton:hover{
      </size>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_19">
+   <widget class="QPushButton" name="but_dot">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -227,7 +227,7 @@ QPushButton:hover{
      </size>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_20">
+   <widget class="QPushButton" name="but_0">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -321,7 +321,7 @@ QPushButton:hover{
      </size>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_23">
+   <widget class="QPushButton" name="but_ce">
     <property name="geometry">
      <rect>
       <x>110</x>
@@ -900,11 +900,14 @@ QPushButton:hover{
       <x>10</x>
       <y>10</y>
       <width>281</width>
-      <height>75</height>
+      <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">background-color: rgb(255, 255, 255);
+border-radius:8px;
+border:rgb(31, 190, 207);
+border-size:3px;</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_35">
