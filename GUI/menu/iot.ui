@@ -371,7 +371,7 @@ text-align: center;
    <sender>pushButton</sender>
    <signal>clicked()</signal>
    <receiver>frame_2</receiver>
-   <slot>hide()</slot>
+   <slot>show()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>160</x>
