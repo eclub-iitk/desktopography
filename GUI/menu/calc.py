@@ -13,12 +13,15 @@ class Ui_MainWindow(object):
     num=0
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(300, 380)
+        #MainWindow.resize(300, 380)
+        MainWindow.setGeometry(500,250,300,300)
+        #MainWindow.setWindowFlags(QtCore.Qt.CustomizeWindowHint )
+        #MainWindow.setWindowIcon(QtGui.QIcon('icon.png'))
         MainWindow.setMinimumSize(QtCore.QSize(300, 380))
         MainWindow.setMaximumSize(QtCore.QSize(300, 380))
         MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("Calculator-icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon = QtGui.QIcon('icon.png')
+        icon.addPixmap(QtGui.QPixmap("icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet("background-color:  #2e3436;")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -685,20 +688,15 @@ class Ui_MainWindow(object):
 
         elif b.text() == ".":
             d=self.textEdit.toPlainText()
-            if num == 0:
-                if float(d[0:]) == int(d[0:]):
-                    d=self.textEdit.toPlainText()+ b.text()
-                    self.textEdit.setText(d)
+            e=len(d)
+            for i in range(e):
+                if d[i]=="." :
+                    return
 
-                else:
-                    self,textEdit.setText(d)
-            else :
-                if float(d[1:]) == int(d[1:]):
-                    d=self.textEdit.toPlainText()+ b.text()
-                    self.textEdit.setText(d)
+            d=d+b.text()
+            self.textEdit.setText(d)
 
-                else:
-                    self,textEdit.setText(d)
+
 
 
         else:
