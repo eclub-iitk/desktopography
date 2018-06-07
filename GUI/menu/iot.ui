@@ -39,10 +39,15 @@ color:rgb(46, 52, 54);
 }
 
 QPushButton:pressed {
-	background-color: rgb(46, 52, 54);
-	color:rgb(255, 255, 255);
-	border:2px
+	
+	
+	border:5px
 }
+QPushButton:hover{
+   background-color: rgb(46, 52, 54);
+	color:rgb(255, 255, 255);
+}
+
 
 </string>
    </property>
@@ -60,6 +65,9 @@ QPushButton:pressed {
       <width>281</width>
       <height>100</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>Fan</string>
@@ -161,6 +169,102 @@ border-radius:8px;
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
+   <widget class="QDial" name="dial">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>220</y>
+      <width>171</width>
+      <height>171</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QDial" name="dial_2">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>220</y>
+      <width>171</width>
+      <height>171</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QDial" name="dial_3">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>220</y>
+      <width>171</width>
+      <height>171</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>140</y>
+      <width>201</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:rgb(206, 92, 0);
+font: 75 20pt &quot;AnjaliOldLipi&quot;;
+text-align: center;
+</string>
+    </property>
+    <property name="text">
+     <string>Fan 1</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>140</y>
+      <width>201</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:rgb(206, 92, 0);
+font: 75 20pt &quot;AnjaliOldLipi&quot;;
+text-align: center;
+</string>
+    </property>
+    <property name="text">
+     <string>Fan 2</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>140</y>
+      <width>201</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:rgb(206, 92, 0);
+font: 75 20pt &quot;AnjaliOldLipi&quot;;
+text-align: center;
+</string>
+    </property>
+    <property name="text">
+     <string>Fan 3</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>
