@@ -632,24 +632,34 @@ class Ui_MainWindow(object):
             x = len(f)-1
             g = f[:x]
             self.textEdit.setText(g)
+            z = self.textEdit.toPlainText()
+            if num ==1:
+                num2= float(z[1:]) 
+            else :
+                num1= float(z[0:])
 
         elif b.text() == "=":
             z = self.textEdit.toPlainText()
             if z[0] == "+":
-                self.textEdit.setText(str(float(num1+num2)))
+                c = str(float(num1+num2))
             elif z[0] == "-":
-                self.textEdit.setText(str(float(num1-num2)))
+                c = (str(float(num1-num2)))
             elif z[0] == "*":
-                self.textEdit.setText(str(float((num1*num2))))
+                c = (str(float((num1*num2))))
             elif z[0] == "/":
-                self.textEdit.setText(str(float((num1/num2))))
+                c = (str(float((num1/num2))))
             elif z[0] == "%":
-                self.textEdit.setText(str(float(num1%num2)))
+                c = (str(float(num1%num2)))
             elif z[0] == "^":
-                self.textEdit.setText(str(float(num1**num2)))
+                c = (str(float(num1**num2)))
             num=0
-            c=self.textEdit.toPlainText()
-            num1= float(c)
+            x= float(c)
+            x= round(x,8)
+            d=str(x)
+            self.textEdit.setText(d)
+            #c=self.textEdit.toPlainText()
+            num1= x
+            #print((num1))
             num2=0
 
         elif b.text() == "+":
