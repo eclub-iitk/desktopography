@@ -383,5 +383,21 @@ text-align: center;
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>update()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>429</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>539</x>
+     <y>359</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
 </ui>
