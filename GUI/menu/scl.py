@@ -1,11 +1,3 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'iot.ui'
-#
-# Created by: PyQt5 UI code generator 5.10.1
-#
-# WARNING! All changes made in this file will be lost!
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 global width, height
 global a,b
@@ -13,6 +5,7 @@ a=1080
 b=720
 width=751
 height=561
+
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
@@ -152,28 +145,27 @@ class Ui_Form(object):
 
         self.pushButton_3.clicked.connect(reset)
 
-        def btnclk3():
-                global width, height
-                width= Form.frameGeometry().width()
-                height = Form.frameGeometry().height()
-                self.frame_2.setGeometry(QtCore.QRect(320, 150, width, height))
-                print (width)
+        def translate():
+            global width, height, w_prev, h_prev, x1, x2,y1, y2,w1,w2
+                
+            width= Form.frameGeometry().width()
+            height = Form.frameGeometry().height()
+            x1=self.frame_2.frameGeometry().width()
+            y1=self.frame_2.frameGeometry().height()
+            x2=width*(320.0/1080.0)
+            y2=height*(150.0/720.0)
+            w1=width*(751/1080.0)
+            w2=height*(561.0/720.0)
+            print (width, x2)
+            self.frame_2.setGeometry(QtCore.QRect(x2, y2, w1, w2 ))
 
-        self.pushButton_2.clicked.connect(btnclk3)
+
+
 
         def btnclk2():
-                global a,b
-                a=a+10
-                b=b+10
-                Form.resize(a,b)
+             translate() 
 
-                global width, height
                 
-                width= Form.frameGeometry().width()
-                height = Form.frameGeometry().height()
-                width=width+10
-                height=height+10
-                self.frame_2.setGeometry(QtCore.QRect(320, 150, width, height))
                
         self.pushButton_4.clicked.connect(btnclk2)
                     

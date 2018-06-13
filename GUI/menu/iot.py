@@ -18,6 +18,7 @@ class Ui_Form(object):
         Form.setObjectName("Form")
         Form.resize(a, b)
         Form.setStyleSheet("background-color: rgb(46, 52, 54);")
+        
         self.frame = QtWidgets.QFrame(Form)
         self.frame.setGeometry(QtCore.QRect(10, 150, 301, 561))
         self.frame.setStyleSheet("QFrame{background-color: rgb(245, 121, 0);\n"
@@ -168,6 +169,7 @@ class Ui_Form(object):
                 Form.resize(a,b)
 
                 global width, height
+
                 width= Form.frameGeometry().width()
                 height = Form.frameGeometry().height()
                 width=width+10
@@ -182,7 +184,9 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
+        
         self.pushButton.setText(_translate("Form", "Fan"))
+        
         self.pushButton_2.setText(_translate("Form", "Lights"))
         self.pushButton_3.setText(_translate("Form", "Cooler"))
         self.pushButton_4.setText(_translate("Form", "Music"))
