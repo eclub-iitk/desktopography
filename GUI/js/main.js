@@ -24,3 +24,11 @@ document.querySelector("#result").innerHTML = calculate;
 function insert(num){
     document.form.textview.value=document.form.textview.value+ num;
 }
+
+function cln(){
+    document.form.textview.value="";
+}
+
+function equals(){
+    document.form.textview.value=eval(document.form.textview.value);
+}
