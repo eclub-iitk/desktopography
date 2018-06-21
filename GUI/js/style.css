@@ -14,16 +14,7 @@
             resize: both;
             overflow: auto;
         }
-
-        div {
-            border: 2px solid;
-            padding: 1px; 
-            width: 432px;
-            resize: both;
-            overflow: auto;
-        }
-
-          
+          /*
           .but:hover {
             background-color:#008CBA; 
           }
@@ -33,15 +24,13 @@
             transform: translateY(4px);
           }
           
-          
+          */
         .textview {
-            background-color: white; 
+            background-color: black; 
             width: 405px;
             font-size: 50px;
             height: 100px;
             margin: 5px;
-            
-
             padding: 5px
             
             
