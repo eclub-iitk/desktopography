@@ -1,11 +1,14 @@
 .btn-group button {
-    background-color: #d47f0f;
-    border: 2px solid black; /* Green border */
+    background-color: #ff8000;
+    border: none; /* Green border */
     color: white; /* White text */
-    padding: 10px 24px; /* Some padding */
+    padding: 24px 24px; /* Some padding */
     cursor: pointer; /* Pointer/hand icon */
     float: left; /* Float the buttons side by side */
-}
+    font-size: 32px;
+
+    }
+
 
 /* Clear floats (clearfix hack) */
 .btn-group:after {
@@ -20,4 +23,7 @@
 
 /* Add a background color on hover */
 .btn-group button:hover {
-    background-color: white};
+    background-color:#00bfff;
+    box-shadow: 0 20px 20px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
+}
