@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Homewindow</title>
+    <style>
+        div {
+            resize: both;
+            overflow: auto;
+            height: 500px;
+            width: 500px;
+            border: 1px solid black;
+            background-image: url(back.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .button {
+            border: none;
+            color: white;
+            padding: 46px 46px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
+        .button1 {
+            background-image: url(home.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .button2 {
+            background-image: url(cal.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .button3 {
+            background-image: url(iot.jpg);
+            background-repeat: no-repeat;
+            background-size: contain;    
+        }
+        .button4 {
+            background-image: url(key.png);
+            background-repeat: no-repeat;
+            background-size: contain;        
+        }
+        .button5 {
+            background-image: url(i1.png);
+            background-repeat: no-repeat;
+            background-size: contain;    
+        }
+        .button6 {
+            background-image: url(i2.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .button1:hover {
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            
+        }
+
+        th, td {
+            padding: 30px;
+        }
+
+        </style>
+</head>
+
+<body>
+
+        <div>
+            <table>
+                <tr>
+                    <td align="center"><button class="button button1" onclick="location.href = 'home.html';"></button></td>
+                    <td align="center"><button class="button button2" onclick="location.href = 'calculator.html';"></button></td>
+                </tr>
+                <tr>
+                    <td align="center"><button class="button button3" onclick="location.href = 'https://www.google.com/';"></button></td>
+                    <td align="center"><button class="button button4" onclick="location.href = 'https://www.google.com/';"></button></td>
+                </tr>
+                <tr>
+                    <td align="center"><button class="button button5" onclick="location.href = 'https://www.google.com/';"></button></td>
+                    <td align="center"><button class="button button6" onclick="location.href = 'https://www.google.com/';"></button></td>
+                </tr>
+            </table>
+            
+        </div>
+
+</body>
+
+
+</html>
