@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Homewindow</title>
+    <style>
+        div {
+            resize: both;
+            overflow: auto;
+            height: 500px;
+            width: 500px;
+            border: 1px solid black;
+            background-image: url(back.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .button {
+            position: absolute;
+            top: 25%;
+            left: 13.5%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            border: none;
+            color: white;
+            padding: 46px 46px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            background-image: url(menu.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .button1:hover {
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+        </style>
+</head>
+
+<body>
+
+        <div>
+            <button class="button button1" onclick="location.href = 'menu.html';"></button>
+        </div>
+
+</body>
+
+
+</html>
