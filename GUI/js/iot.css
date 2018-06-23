@@ -8,7 +8,16 @@
     font-size: 32px;
 
     }
+.answer_list{
 
+    font-size: 32px;
+}
+.switch{
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
 
 /* Clear floats (clearfix hack) */
 .btn-group:after {
