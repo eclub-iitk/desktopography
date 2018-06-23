@@ -1,0 +1,125 @@
+        .main {
+            resize: both;
+            overflow: auto;
+            height: 500px;
+            width: 500px;
+            border: 1px solid black;
+            background-image: url(back.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .button {
+            border: none;
+            color: white;
+            padding: 46px 46px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
+        .button1 {
+ 		background-image: url(home.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .button2 {
+            background-image: url(cal.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+	
+	
+        .button3 {
+            background-image: url(iot.jpg);
+            background-repeat: no-repeat;
+            background-size: contain;    
+        }
+        .button4 {
+            background-image: url(key.png);
+            background-repeat: no-repeat;
+            background-size: contain;        
+        }
+        .button5 {
+            background-image: url(i1.png);
+            background-repeat: no-repeat;
+            background-size: contain;    
+        }
+        .button6 {
+            background-image: url(i2.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            
+        }
+        th, td {
+            padding: 30px;
+        }
+
+
+.calbody{  
+ background-color: rgb(46, 52, 54);
+ border: 1px solid #ff0;  
+ padding: 10px;  
+ margin-left: 600px;  
+ min-width: 20em;  
+ max-width: 20em;  
+	background-image:none;
+	color: red;
+	 position: absolute;
+    	bottom: 250px;
+    	//right: 300px;
+	display: none;
+}  
+  
+#lcd{  
+ text-align: right;  
+ width: 17.5em;  
+ height: 40px;  
+ font-size: 18px;  
+   
+}  
+  
+#lcdu{  
+ color: grey;  
+ text-align: right;  
+ width: 21em;  
+ height: 35px;  
+ font-size: 15px;  
+   
+}  
+  
+#calbutton button{  
+width: 60px;  
+height: 50px;  
+font-size: 20px;  
+border:none;
+border-radius:8px;
+background-color: rgb(46, 52, 54);
+color:rgb(255, 255, 255);
+  
+}  
+  
+#calbutton button:hover{  
+background-color: rgb(245, 121, 0);
+color:rgb(255, 255, 255);  
+ }  
+
+
+#calbutton button:pressed {
+border:5px
+}
+
+.show {
+transition: all 2s ease;
+display:block;}
+
+.rotate{
+transform: rotate(90deg);
+}
