@@ -1,86 +1,22 @@
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <title>Homewindow</title>
-    <style>
-        div {
-            resize: both;
-            overflow: auto;
-            height: 500px;
-            width: 500px;
-            border: 1px solid black;
-            background-image: url(back.jpeg);
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        .button {
-            border: none;
-            color: white;
-            padding: 46px 46px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            -webkit-transition-duration: 0.4s; /* Safari */
-            transition-duration: 0.4s;
-        }
-        .button1 {
-            background-image: url(home.png);
-            background-repeat: no-repeat;
-            background-size: contain;
-        }
-        .button2 {
-            background-image: url(cal.png);
-            background-repeat: no-repeat;
-            background-size: contain;
-        }
-        .button3 {
-            background-image: url(iot.jpg);
-            background-repeat: no-repeat;
-            background-size: contain;    
-        }
-        .button4 {
-            background-image: url(key.png);
-            background-repeat: no-repeat;
-            background-size: contain;        
-        }
-        .button5 {
-            background-image: url(i1.png);
-            background-repeat: no-repeat;
-            background-size: contain;    
-        }
-        .button6 {
-            background-image: url(i2.png);
-            background-repeat: no-repeat;
-            background-size: contain;
-        }
-
-        .button1:hover {
-            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-        }
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            
-        }
-
-        th, td {
-            padding: 30px;
-        }
-
-        </style>
+<link rel="stylesheet" type="text/css" href="menu.css">  
 </head>
 
 <body>
 
-        <div>
+        <div class = "main">
             <table>
                 <tr>
-                    <td align="center"><button class="button button1" onclick="location.href = 'home.html';"></button></td>
-                    <td align="center"><button class="button button2" onclick="location.href = 'calculator.html';"></button></td>
+                    <td align="center"><button class="button button1" onclick="location.href = 'home.html';"></button>
+					</td>
+                   	
+			 <td align="center"><button class="button button2" onclick="myFunction()"></button></td>
+
                 </tr>
                 <tr>
                     <td align="center"><button class="button button3" onclick="location.href = 'https://www.google.com/';"></button></td>
@@ -94,6 +30,51 @@
             
         </div>
 
+
+
+<div class="calbody" id= "calculator"> 
+
+
+<button onclick="rotat();">rotate</button><br>
+<form name="lcdform">  
+<input id="lcdu" name="lcdsu" type="text" value="" />  
+<input id="lcd" name="lcds" type="text" value="0" />  
+</form>
+<div id="calbutton">  
+<button id="num1" onclick="numone();">1</button>  
+<button id="num2" onclick="numtwo();">2</button>  
+<button id="num3" onclick="numthree();">3</button>  
+<button id="operationplus" onclick="operationplus();">+</button>
+<button id="clr" onclick="clr();">C</button>  
+  
+  
+<button id="num4" onclick="numfour();">4</button>  
+<button id="num5" onclick="numfive();">5</button>  
+<button id="num6" onclick="numsix();">6</button>  
+<button id="operationmult" onclick="operationmult();">*</button>  
+<button id="operationsqrt" onclick="sqrots();">Sqrt()</button>  
+  
+  
+<button id="num7" onclick="numseven();">7</button>  
+<button id="num8" onclick="numeight();">8</button>  
+<button id="num9" onclick="numnine();">9</button>  
+<button id="operationminus" onclick="operationminus();">-</button>
+<button id="operationraistop" onclick="operationraistop();">^</button>  
+  
+
+  
+<button id="num0" onclick="numzero();">0</button> 
+<button id="num." onclick="numdot();">.</button>
+<button id="ce" onclick="ce();">CE</button> 
+<button id="operationdivid" onclick="operationdivid();">/</button>  
+<button id="sumbit" onclick="equalsto();">=</button>  
+</div>  
+</div>  
+<script src="menu.js">
+
+</script>
+
+  
 </body>
 
 
