@@ -1,21 +1,48 @@
 /* THE MAINCONTAINER HOLDS EVERYTHING */
+.main{
 
+    position: absolute;
+    width: 23%;
+    height: 25%;
+    
+    top: 2%;
+    left: -2%;    
+   
+}
 .main-container {
     position: absolute;
-    width: 250px;
-    height: 320px;
+    width: 100px;
+    height: 120px;
     background: none;
     
     transform: translate(-50%, -50%);
 }
 .c1{
-    top: 50%;
-    left: 33.3%;
+    top: 20%;
+    left: 25%;
 }
 
 .c2{
-    top: 50%;
-    left: 66.6%;
+    top: 20%;
+    left: 50%;
+}
+.c3{
+    top: 20%;
+    left: 75%;
+}
+
+.c4{
+    top: 75%;
+    left: 25%;
+}
+.c5{
+    top: 75%;
+    left: 50%;
+}
+
+.c6{
+    top: 75%;
+    left: 75%;
 }
 
 /* THE CARD HOLDS THE FRONT AND BACK FACES */
@@ -48,8 +75,11 @@
     border-radius: 10px;
     backface-visibility: hidden;
     overflow: hidden;
-    background: #ffa228;
+    background:#FF6600;
     color: #000;
+
+    
+    
 }
 
 /* THE BACK FACE OF THE CARD, WHICH SHOWS ON MOUSEOVER */
@@ -63,7 +93,7 @@
     border-radius: 10px;
     backface-visibility: hidden;
     overflow: hidden;
-    background: #42ebb2;
+    background: #00ffcc;
     color: #333;
     text-align: center;
     transform: rotateY(180deg);
@@ -76,7 +106,7 @@
     font-family: 'zilla slab', sans-serif;
     padding: 30px;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 14px;
     text-align: center;
 }
 
@@ -85,6 +115,6 @@
     font-family: 'zilla slab', sans-serif;
     padding: 30px;
     font-weight: normal;
-    font-size: 20px;
+    font-size: 14px;
     text-align: center;
 }
