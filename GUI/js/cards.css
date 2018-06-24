@@ -7,7 +7,8 @@
     height: 25%;
     background-color:white;
     top: 100px;
-    left: 100px;    
+    left: 100px;  
+    display: none;  
    
 }
 .main-container {
