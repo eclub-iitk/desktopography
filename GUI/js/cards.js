@@ -20,4 +20,4 @@ function doubleclick(event) {
     document.getElementById("myDIV").style.display = "block";
 }
 
-document.addEventListener("click", doubleclick);
+document.addEventListener("dblclick", doubleclick);

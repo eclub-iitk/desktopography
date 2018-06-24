@@ -5,7 +5,6 @@
     width: 25%;
 
     height: 25%;
-    background-color:white;
     top: 100px;
     left: 100px;  
     display: none;  
@@ -20,16 +19,16 @@
     transform: translate(-50%, -50%);
 }
 .c1{
-    top: 20%;
+    top: 18%;
     left: 25%;
 }
 
 .c2{
-    top: 20%;
+    top: 18%;
     left: 50%;
 }
 .c3{
-    top: 20%;
+    top: 18%;
     left: 75%;
 }
 
@@ -77,7 +76,7 @@
     border-radius: 10px;
     backface-visibility: hidden;
     overflow: hidden;
-    background:#FF6600;
+    background:#4285F4;
     color: #000;
 
     
@@ -95,7 +94,7 @@
     border-radius: 10px;
     backface-visibility: hidden;
     overflow: hidden;
-    background: #00ffcc;
+    background: #009B77;
     color: #333;
     text-align: center;
     transform: rotateY(180deg);
