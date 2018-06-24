@@ -10,10 +10,11 @@ function weather() {
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
 
-    location.innerHTML = 'Latitude is ' + latitude + '° <br> Longitude is ' + longitude + '°';
+    location.innerHTML = 'Latitude is ' + latitude.toFixed(3) + '° <br> Longitude is ' + longitude.toFixed(3) + '°';
 
      $.getJSON(url + apiKey + "/" + latitude + "," + longitude + "?callback=?", function(data) {
-      $('#temp').html(data.currently.temperature + '° F');
+      var x=5*(data.currently.temperature-32)/9;
+      $('#temp').html(x.toFixed(2) + '° C');
       $('#minutely').html(data.minutely.summary);
     });
   }
