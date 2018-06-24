@@ -2,17 +2,18 @@
 .main{
 
     position: absolute;
-    width: 23%;
+    width: 25%;
+
     height: 25%;
-    
-    top: 2%;
-    left: -2%;    
+    background-color:white;
+    top: 100px;
+    left: 100px;    
    
 }
 .main-container {
     position: absolute;
-    width: 100px;
-    height: 120px;
+    width: 20%;
+    height: 50%;
     background: none;
     
     transform: translate(-50%, -50%);
