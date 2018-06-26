@@ -1,10 +1,19 @@
-        .main {
+body{
+//background: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+//background:  linear-gradient(to left, #648880, #293f50);
+//background-image: linear-gradient(to left, #04142d, #0a1b35, #11223c, #172944, #1e304c);
+}        
+
+.main {
             resize: both;
             overflow: auto;
             height: 500px;
             width: 500px;
-            border: 1px solid black;
-            background-image: url(back.jpeg);
+		position : absolute;
+		left:500px;
+		bottom : 100 px;
+            //border: 1px solid black;
+            //background-image: url(back.jpeg);
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -65,61 +74,105 @@
 
 .calbody{  
  background-color: rgb(46, 52, 54);
- border: 1px solid #ff0;  
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+position:absolute;
+  z-index: 9;
+            resize:both;
+            overflow: auto;
+ //border: 1px solid #ff0;  
  padding: 10px;  
- margin-left: 600px;  
- min-width: 20em;  
- max-width: 20em;  
-	background-image:none;
+ left: 600px;  
+ width: 20em;
+height:20em;  
+ 	background-image:none;
 	color: red;
-	 position: absolute;
-    	bottom: 250px;
+	top:100px;
+	//bottom: 250px;
     	//right: 300px;
 	display: none;
 }  
-  
-#lcd{  
- text-align: right;  
- width: 17.5em;  
- height: 40px;  
- font-size: 18px;  
-   
-}  
-  
+.calform{
+
+height:27%
+
+}
 #lcdu{  
- color: grey;  
+resize:both; 
+color: grey;  
  text-align: right;  
- width: 21em;  
- height: 35px;  
- font-size: 15px;  
+ width: 100%;
+height:30%;  
+ font-size: 120%;  
+   
+}  
+#lcd{  
+resize:both; 
+ text-align: right;  
+ width: 100%;  
+ height:40%;  
+ font-size: 120%;  
    
 }  
   
-#calbutton button{  
-width: 60px;  
-height: 50px;  
-font-size: 20px;  
+#calculator button{  
+width: 18.75%;  
+height: 15.625%;  
+font-size: 120%;  
 border:none;
-border-radius:8px;
+border-radius: 12.5%;
 background-color: rgb(46, 52, 54);
 color:rgb(255, 255, 255);
   
 }  
   
-#calbutton button:hover{  
+#calculator button:hover{  
 background-color: rgb(245, 121, 0);
 color:rgb(255, 255, 255);  
  }  
 
 
-#calbutton button:pressed {
-border:5px
+#calculator button:pressed {
+border:13.56%
 }
 
+.headcal button{  
+width: 30.75%;  
+height: 8.625%;  
+font-size: 100%;  
+border:none;
+border-radius: 12.5%;
+background-color: white;
+color:rgb(255, 255, 255);
+  
+}  
+  
+.headcal button:hover{  
+background-color: rgb(245, 121, 0);
+color:rgb(255, 255, 255);  
+ }  
+
+
+.headcal button:pressed {
+border:13.56%
+}
+
+
 .show {
-transition: all 2s ease;
-display:block;}
+display:block;
+animation: fadein 2s;
+}
+.hide{
+display:none;
+
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
 
 .rotate{
+animation: fadein 2s;
 transform: rotate(90deg);
 }
