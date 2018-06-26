@@ -4,12 +4,12 @@
 
 <head>
     <title>Homewindow</title>
-<link rel="stylesheet" type="text/css" href="menu.css">  
+<link rel="stylesheet" type="text/css" href="menucss.css">  
 </head>
 
 <body>
 
-        <div class = "main">
+        <div class = "main" id ="menu">
             <table>
                 <tr>
                     <td align="center"><button class="button button1" onclick="location.href = 'home.html';"></button>
@@ -31,21 +31,22 @@
         </div>
 
 
+<div id = "sizecal">
+<div class="calbody" id= "calculator" > 
+<div class = "headcal">
+<button onclick="rotat();">rotate</button>
 
-<div class="calbody" id= "calculator"> 
-
-
-<button onclick="rotat();">rotate</button><br>
-<form name="lcdform">  
-<input id="lcdu" name="lcdsu" type="text" value="" />  
-<input id="lcd" name="lcds" type="text" value="0" />  
-</form>
-<div id="calbutton">  
+<button onclick="myFunction();">close</button><br>
+</div>
+<form name="lcdform" class = "calform">  
+<input id="lcdu" name="lcdsu" type="text" value="" /> 
+<input id="lcd" name="lcds" type="text" value="0" /> 
+</form> 
 <button id="num1" onclick="numone();">1</button>  
 <button id="num2" onclick="numtwo();">2</button>  
 <button id="num3" onclick="numthree();">3</button>  
 <button id="operationplus" onclick="operationplus();">+</button>
-<button id="clr" onclick="clr();">C</button>  
+<button id="clr" onclick="clr();">C</button>  <br>
   
   
 <button id="num4" onclick="numfour();">4</button>  
@@ -53,24 +54,25 @@
 <button id="num6" onclick="numsix();">6</button>  
 <button id="operationmult" onclick="operationmult();">*</button>  
 <button id="operationsqrt" onclick="sqrots();">Sqrt()</button>  
-  
+  <br>
   
 <button id="num7" onclick="numseven();">7</button>  
 <button id="num8" onclick="numeight();">8</button>  
 <button id="num9" onclick="numnine();">9</button>  
 <button id="operationminus" onclick="operationminus();">-</button>
 <button id="operationraistop" onclick="operationraistop();">^</button>  
-  
-
+<br>  
+ 
   
 <button id="num0" onclick="numzero();">0</button> 
 <button id="num." onclick="numdot();">.</button>
 <button id="ce" onclick="ce();">CE</button> 
 <button id="operationdivid" onclick="operationdivid();">/</button>  
 <button id="sumbit" onclick="equalsto();">=</button>  
+<br>  
 </div>  
-</div>  
-<script src="menu.js">
+</div>
+<script src="menujs.js">
 
 </script>
 
