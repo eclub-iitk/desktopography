@@ -9,6 +9,8 @@ function rotat() {
 	}
 
 dragElement(document.getElementById(("calculator")));
+//remove this dragelement line above and belove function for enabling resize
+
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
