@@ -2,39 +2,40 @@
 .main{
 
     position: absolute;
-    width: 25%;
+    width: 20%;
 
     height: 25%;
     top: 100px;
     left: 100px;  
-    display: none;  
+    display: none; 
+    /*background-color: cyan; */
    
 }
 .main-container {
     position: absolute;
-    width: 20%;
-    height: 50%;
+    width: 25%;
+    height: 45%;
     background: none;
     
     transform: translate(-50%, -50%);
 }
 .c1{
-    top: 18%;
-    left: 25%;
+    top: 25%;
+    left: 20%;
 }
 
 .c2{
-    top: 18%;
+    top: 25%;
     left: 50%;
 }
 .c3{
-    top: 18%;
-    left: 75%;
+    top: 25%;
+    left: 80%;
 }
 
 .c4{
     top: 75%;
-    left: 25%;
+    left: 20%;
 }
 .c5{
     top: 75%;
@@ -43,7 +44,7 @@
 
 .c6{
     top: 75%;
-    left: 75%;
+    left: 80%;
 }
 
 /* THE CARD HOLDS THE FRONT AND BACK FACES */

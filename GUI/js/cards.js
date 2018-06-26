@@ -15,8 +15,11 @@ function doubleclick(event) {
   x=event.clientX;
   y=event.clientY;
 
-  var clientHeight = document.getElementById('myDIV').clientHeight;
-  var clientWidth = document.getElementById('myDIV').clientWidth;
+  //var clientHeight = document.getElementById('myDIV').clientHeight;
+  //var clientWidth = document.getElementById('myDIV').clientWidth;
+
+  var clientHeight = document.getElementById('myDIV').offsetHeight;
+  var clientWidth = document.getElementById('myDIV').offsetWidth;
 
   if(x>(window.innerWidth-clientWidth))
       x=window.innerWidth-clientWidth;
@@ -27,7 +30,8 @@ function doubleclick(event) {
     document.getElementById("myDIV").style.left = x + "px";
     document.getElementById("myDIV").style.display = "block";
 
-    
+    var p=document.getElementById("print");
+    p.innerHTML=clientHeight+" "+clientWidth+" "+y+" "+x+" "+event.clientY+" "+event.clientX;
 }
 
 document.addEventListener("dblclick", doubleclick);
@@ -38,4 +42,47 @@ function ws() {
     
     if(clientHeight>200){myFunction();}
     alert(clientHeight +" "+clientWidth);
+}
+
+
+function view() {
+    var viewFullScreen = document.getElementById("view-fullscreen");
+    if (viewFullScreen) {
+        viewFullScreen.addEventListener("click", function () {
+            var docElm = document.documentElement;
+            if (docElm.requestFullscreen) {
+                docElm.requestFullscreen();
+            }
+            else if (docElm.msRequestFullscreen) {
+                docElm = document.body; //overwrite the element (for IE)
+                docElm.msRequestFullscreen();
+            }
+            else if (docElm.mozRequestFullScreen) {
+                docElm.mozRequestFullScreen();
+            }
+            else if (docElm.webkitRequestFullScreen) {
+                docElm.webkitRequestFullScreen();
+            }
+        }, false);
+    }
+}
+function cancel(){
+    var cancelFullScreen = document.getElementById("cancel-fullscreen");
+    if (cancelFullScreen) {
+        cancelFullScreen.addEventListener("click", function () {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+            else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+            else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            }
+            else if (document.webkitCancelFullScreen) {
+                document.webkitCancelFullScreen();
+            }
+        }, false);
+    }
+    
 }
