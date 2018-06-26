@@ -36,13 +36,22 @@ function doubleclick(event) {
 
 document.addEventListener("dblclick", doubleclick);
 
-function ws() {
+function ws1() {
     var clientHeight = document.getElementById('myDIV').clientHeight;
     var clientWidth = document.getElementById('myDIV').clientWidth;
     
     if(clientHeight>200){myFunction();}
     alert(clientHeight +" "+clientWidth);
 }
+
+
+function ws2() {
+    document.getElementById("myDIV").style.display="none";
+    document.getElementById("calculator").style.top=document.getElementById("myDIV").style.top;
+    document.getElementById("calculator").style.left=document.getElementById("myDIV").style.left;
+    document.getElementById("calculator").style.display="block";
+}
+
 
 
 function view() {
@@ -86,3 +95,18 @@ function cancel(){
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

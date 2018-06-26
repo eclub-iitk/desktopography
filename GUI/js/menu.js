@@ -1,7 +1,8 @@
-        function myFunction() {
-   	document.getElementById("menu").classList.toggle("hide");
-	 document.getElementById("calculator").classList.toggle("show");
-	
+function myFunction2() {
+   	//document.getElementById("myDIV").classList.toggle("hide");
+	 //document.getElementById("calculator").classList.toggle("show");
+	//document.getElementById("myDIV").style.display="block";
+        document.getElementById("calculator").style.display="none";
 	}
 function rotat() {
    	 document.getElementById("calculator").classList.toggle("rotate");
