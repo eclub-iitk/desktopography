@@ -148,6 +148,8 @@ position:absolute;
  left: 600px;  
  width: 20em;
 height:20em;  
+/*width: 20%;
+height: 25%;*/
  	background-image:none;
 	color: red;
 	top:100px;
@@ -197,6 +199,11 @@ color:rgb(255, 255, 255);
 
 #calculator button:pressed {
 border:13.56%
+}
+
+.headcal{
+width: 100%;
+
 }
 
 .headcal button{  
