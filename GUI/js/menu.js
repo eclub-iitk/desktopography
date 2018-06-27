@@ -5,7 +5,17 @@ function myFunction2() {
         document.getElementById("calculator").style.display="none";
 	}
 function rotat() {
-   	 document.getElementById("calculator").classList.toggle("rotate");
+   	 document.getElementById("calculator").classList.toggle("clkrotate");
+	
+	}
+
+function revers() {
+   	 document.getElementById("calculator").classList.toggle("calreverse");
+	
+	}
+
+function arotat() {
+   	 document.getElementById("calculator").classList.toggle("aclkrotate");
 	
 	}
 

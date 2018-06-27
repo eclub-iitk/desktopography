@@ -243,7 +243,17 @@ display:none;
 }
 
 
-.rotate{
+.clkrotate{
 animation: fadein 2s;
 transform: rotate(90deg);
+}
+
+.calreverse{
+animation: fadein 2s;
+transform: rotate(180deg);
+}
+
+.aclkrotate{
+animation: fadein 2s;
+transform: rotate(270deg);
 }
