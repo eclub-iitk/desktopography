@@ -1,0 +1,40 @@
+
+
+#calculator
+{
+    width: 250px;
+    height: 350px;
+    border: 5px solid red;
+    text-align:center;
+    background: lightgreen;
+    margin:150px auto;
+    box-shadow: 0px 0px 30px gray;
+}
+
+#display
+{
+  margin-top:  30px;
+  margin-bottom: 20px;
+  width: 220px;
+  height: 30px;
+  border: 1px solid red;
+  text-align:right;
+  font: 20px bold;
+  color: blue;
+}
+
+#keys
+{
+  width:41px;
+  height: 35px;
+  margin-left: 15px;
+
+  cursor: pointer;
+
+}
+
+#keys:hover
+{
+  background: yellow;
+  font-weight: bold;
+}
