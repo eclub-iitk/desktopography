@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>CSS Flip Cards</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="iott.css" />
+    <script src="iott.js"></script>
+</head>
+
+<body background="body.jpeg">
+    <div class="main-container home">
+        <div class="thecard chome">
+            <div class="thefront fH">
+                <h1>Home</h1>
+                
+            </div>
+            <div class="theback bH" >
+            </div>
+        </div>
+    </div>
+    <div class="main-container light">
+        <div class="thecard clight">
+            <div class="thefront fL">
+                <h1>Light</h1>
+                
+            </div>
+            <div class="theback bL">
+                <div id="Lights"  style="display: block" class="answer_list" >
+                    <table >
+                    <tr>
+                    <td>
+                    <main>
+	                   <input class="l" type="checkbox">
+                    </main>
+                    </td>
+                    <td><h1>Light 1</h1></td>
+                    </tr>
+                    <tr>
+                    <td>
+                    <main>
+	                   <input class="l" type="checkbox">
+                    </main>
+                    </td>
+                    <td><h1>Light 2</h1></td>
+                    </tr>
+                    <tr>
+                    <td>
+                    <main>
+	                   <input class="l" type="checkbox">
+                    </main>
+                    </td>
+                    <td><h1>Light 3</h1></td>
+                    </tr>                 
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container fan">
+            <div class="thecard cfan">
+                <div class="thefront fF">
+                    <h1>Fan</h1>
+                </div>
+                <div class="theback bF">
+                    <div class="circle">
+                    <div class="sector1"></div>
+                    <div class="sector2"></div>
+                    <div class="round-middle"></div>
+                    </div>
+                    <div class="btn_wrap">
+                    <button class="btn current" data-speed="paused">0</button>
+                    <button class="btn" data-speed="5000ms" >1</button>
+                    <button class="btn" data-speed="2000ms">2</button>
+                    <button class="btn" data-speed="700ms">3</button>
+                <div>
+                    
+                </div>
+            </div>
+        </div>
+        </div>
+    
+    <div class="main-container cooler">
+            <div class="thecard ccooler">
+                <div class="thefront fC">
+                    
+                </div>
+                <div class="theback bC">
+                    
+                    
+                </div>
+            </div>
+        </div>
+    <div class="main-container weather-time">
+            <div class="thecard cweather">
+                <div class="thefront fW">
+                    
+                </div>
+                <div class="theback bW">
+                    <div class="Weather row center">
+  <div class="Weather__main column column-center split-center"> <!-- Begin Main Bubble -->
+    
+    <h3>Local Weather</h3>
+    <h2 id="location">Your Location</h2>
+    <span id="temp">70</span>
+    <div class="row center column-center Weather__main-toggle"> <!-- Begin Unit Switch -->
+      <span>F</span>
+      <button id="unit-switch"><span id="unit-toggle"></span></button>
+      <span>C</span>
+    </div> <!-- End Unit Switch -->
+    
+  </div> <!-- End Main Bubble -->
+  
+  <div class="Weather__right column-split"> <!-- Begin Right Side Bubbles -->
+    
+    <div class="Weather__right-icon"> <!-- Begin Icon Bubble -->
+      <div class="column column-center"> <!-- Begin Current Coverage -->
+        <i id="icon" class="wi wi-day-sunny"></i>
+        <span id="coverage">Sunny</span>
+      </div> <!-- End Current Coverage -->
+    </div> <!-- End Icon Bubble -->
+    <div class="Weather__right-time column center column-center"> <!-- Begin Time Bubble -->
+      <span id="time">15:00</span>
+    </div> <!-- End Time Bubble -->
+    <div id="refresh" class="Weather__right-refresh column center column-center">
+      <span>Refresh</span>
+    </div>
+    
+  </div> <!-- End Right Side Bubbles -->
+</div>
+                    
+                </div>
+            </div>
+        </div>
+    
+    <div class="main-container music">
+            <div class="thecard cmusic">
+                <div class="thefront fM">
+                    
+                </div>
+                <div class="theback bM">
+                    <div class="slidecontainer">
+                        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                        <h1>Volume: <span id="demo1"></span></h1>
+                </div>
+                <script>
+                    var slider = document.getElementById("myRange");
+                    var output = document.getElementById("demo1");
+                    output.innerHTML = slider.value;
+
+                    slider.oninput = function() {
+                    output.innerHTML = this.value;
+                    }
+                    </script>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+</html>
