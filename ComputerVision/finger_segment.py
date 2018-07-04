@@ -66,7 +66,7 @@ def show_depth():
     image3=np.zeros(shape=(h,w,3),dtype = float)
     img1,new_depth = align(array,depth,image1,depth2)   
     image2 = np.zeros(shape=(h,w,3),dtype = float)
-    img2 = segment(img1,new_depth, image2, 1.0,1.😎
+    img2 = segment(img1,new_depth, image2, 1.0,1.8)
     img2 = np.asarray(img2)
     img2 = img2.astype(np.uint8)
     cv.imshow("segmented image",img2)    
