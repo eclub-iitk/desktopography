@@ -43,7 +43,7 @@ def pretty_depth(depth):
     depth >>= 2
     depth = depth.astype(np.uint8)
     return depth 
-def show_depth():
+def update():
     global threshold
     global current_depth
     global depth 
@@ -61,6 +61,7 @@ def show_depth():
     w = depth.shape[1]
     array,_ = freenect.sync_get_video()
     array = cv.cvtColor(array,cv.COLOR_RGB2BGR)
+    cv.imshow('Video', array)
     image1=np.zeros(shape=(h,w,3),dtype = float) 
     depth2 = np.zeros((480,640))  
     image3=np.zeros(shape=(h,w,3),dtype = float)
@@ -162,12 +163,6 @@ def show_depth():
     print(str(j1)+ "/" + str(len(finger_distance)))        
     cv.imshow("contour",mask5)
     cv.setMouseCallback("Depth",coords_mouse_disp,depth)
- 
-def show_video():
-    array,_ = freenect.sync_get_video()
-    array = cv.cvtColor(array,cv.COLOR_RGB2BGR)
-    
-    cv.imshow('Video', array)
      
 cv.namedWindow('Depth')
 cv.createTrackbar('threshold', 'Depth', threshold,     500,  change_threshold)
@@ -177,8 +172,7 @@ cv.createTrackbar('dmin','img2', min ,200, change_min)
 cv.createTrackbar('dmax','img2', max ,200, change_max)
  
 while 1:
-    show_depth()
-    show_video()
+    update()
     k = cv.waitKey(5) & 0xFF
     if k == 27:
         break
