@@ -6,12 +6,14 @@ from gevent.pywsgi import WSGIServer
 from gevent.queue import Queue
 from flask import render_template
 import json
+import random
+
 app = Flask(__name__)
 
 def get_finger_state():
-    time.sleep(3)
-    x = 100
-    y =2000
+    time.sleep(0.1)
+    x = random.randint(200,400)
+    y =random.randint(200,400)
     clicked = True
     data = { "x" : x, "y" : y, "click" : clicked}
     return data
