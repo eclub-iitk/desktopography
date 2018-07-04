@@ -1,0 +1,49 @@
+
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="design.css">
+    </head>
+<title>Calculator</title>
+
+<body>
+    <div id="calculator">
+        <form>
+                <input type="text" id="display" disabled><br>
+
+                <input type="button" value="C" id="keys" onclick="addtoscreen('c')">
+                <input type="button" value="%" id="keys" onclick="addtoscreen('+')">
+                <input type="button"value="<--"id="keys" onclick="backspace()">
+                <input type="button" value="=" id="keys" onclick="answer()"><br><br>
+
+                <input type="button" value="9" id="keys" onclick="addtoscreen('9')">
+                <input type="button" value="8" id="keys" onclick="addtoscreen('8')">
+                <input type="button" value="7" id="keys" onclick="addtoscreen('7')">
+                <input type="button" value="*" id="keys" onclick="addtoscreen('*')"><br><br>
+
+                <input type="button" value="6" id="keys" onclick="addtoscreen('6')">
+                <input type="button" value="5" id="keys" onclick="addtoscreen('5')">
+                <input type="button" value="4" id="keys" onclick="addtoscreen('4')">
+                <input type="button" value="-" id="keys" onclick="addtoscreen('-')"><br><br>
+
+                <input type="button" value="3" id="keys" onclick="addtoscreen('3')">
+                <input type="button" value="2" id="keys" onclick="addtoscreen('2')">
+                <input type="button" value="1" id="keys" onclick="addtoscreen('1')">
+                <input type="button" value="+" id="keys" onclick="addtoscreen('+')"><br><br>
+
+                <input type="button" value="0" id="keys" onclick="addtoscreen('0')">
+                <input type="button" value="." id="keys" onclick="addtoscreen('.')">
+                <input type="button" value="/" id="keys" onclick="addtoscreen('/')">
+                <input type="button" value="X^2" id="keys" onclick="power()"><br>
+
+
+        </form>
+
+    </div>
+
+    <script src="logic.js"></script>
+</body>
+
+</html>

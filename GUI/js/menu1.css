@@ -1,0 +1,155 @@
+/* THE MAINCONTAINER HOLDS EVERYTHING */
+.whole{
+    position: absolute;
+    width: 460px;
+    height: 770px;
+    background-color: cyan;
+}
+
+.main-container {
+    position: absolute;
+    width: 200px;
+    height: 230px;
+    background: none;
+    
+    transform: translate(-50%, -50%);
+}
+.c1{
+    top: 17%;
+    left: 26%;
+}
+
+.c2{
+    top: 17%;
+    left: 74%;
+}
+
+.c3{
+    top: 50%;
+    left: 26%;
+}
+
+.c4{
+    top: 50%;
+    left: 74%;
+}
+
+.c5{
+    top: 83%;
+    left: 26%;
+}
+
+.c6{
+    top: 83%;
+    left: 74%;
+}
+
+
+
+
+/* THE CARD HOLDS THE FRONT AND BACK FACES */
+
+.thecard {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+    transition: all 1.0s ease;
+}
+
+/* THE PSUEDO CLASS CONTROLS THE FLIP ON MOUSEOVER AND MOUSEOUT */
+
+.thecard:hover {
+    transform: rotateY(180deg);
+}
+
+/* THE FRONT FACE OF THE CARD, WHICH SHOWS BY DEFAULT */
+
+.thefront {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background: #ffa228;
+    color: #000;
+}
+
+/* THE BACK FACE OF THE CARD, WHICH SHOWS ON MOUSEOVER */
+
+.theback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background: #42ebb2;
+    color: #333;
+    text-align: center;
+    transform: rotateY(180deg);
+}
+
+.f1{
+    background-image: url(home.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.f2{
+    background-image: url(home.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.f3{
+    background-image: url(home.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.f4{
+    background-image: url(home.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.f5{
+    background-image: url(home.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.f6+{
+    background-image: url(home.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/*This block (starts here) is merely styling for the flip card, and is NOT an essential part of the flip code */
+
+.thefront h1,
+.theback h1 {
+    font-family: 'zilla slab', sans-serif;
+    padding: 30px;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+}
+
+.thefront p,
+.theback p {
+    font-family: 'zilla slab', sans-serif;
+    padding: 30px;
+    font-weight: normal;
+    font-size: 20px;
+    text-align: center;
+}

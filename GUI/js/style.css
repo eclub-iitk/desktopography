@@ -1,0 +1,47 @@
+ *{
+            margin: 0;
+            padding: 0;
+           
+        }
+        .but {
+            width: 100px;
+            height: 100px;
+            font-size: 50px;
+            margin: 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            border :0px;
+            resize: both;
+            overflow: auto;
+        }
+          /*
+          .but:hover {
+            background-color:#008CBA; 
+          }
+
+          .but:active {
+            background-color: orange;
+            transform: translateY(4px);
+          }
+          
+          */
+        .textview {
+            background-color: black; 
+            width: 405px;
+            font-size: 50px;
+            height: 100px;
+            margin: 5px;
+            padding: 5px
+            
+            
+           
+        }
+
+        .eql{
+            background-color:#008CBA; 
+            width: 100px;
+             color: white; 
+             
+        }
+        
+        

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>IoT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="iot.css" />
+    <script src="iot.js"></script>
+</head>
+<body>
+        <div class="btn-group" style="width:100%">
+                <button style="width:20%" onclick="fan()">Fan</button>
+                <button style="width:20%" onclick="cooler()">Cooler</button>
+                <button style="width:20%" onclick="lights()">Lights</button>
+                <button style="width:20%" onclick="lock()">Lock</button>
+                <button style="width:20%" onclick="music()">Music</button>
+        </div>
+        <div id="fan"  style="display:none;" class="answer_list" >
+
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider-round">
+
+                </span>
+            </label>
+              
+        </div>
+
+        <div id="cooler"  style="display:none;" class="answer_list" > Cooler Menu</div>
+        
+        <div id="lights"  style="display:none;" class="answer_list" > Lights Menu</div>
+        
+        <div id="lock"  style="display:none;" class="answer_list" > Lock Menu</div>
+        
+        <div id="music"  style="display:none;" class="answer_list" > Music Menu</div>
+        
+        <div id="wtr"   class="answer_list" > LOL</div>
+    
+</body>
+</html>

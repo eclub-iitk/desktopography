@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>CSS Flip Cards</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="cards.css" />
+    <script src="cards.js"></script>
+</head>
+
+<body bgcolor="#303030" ondblclick="doubleclick()">
+	
+    <!--<div id="print"></div>-->
+
+    <button id="view-fullscreen" onclick="view();">Fullscreen</button>
+    <button id="cancel-fullscreen" onclick="cancel();">Cancel fullscreen</button>
+
+    <div class="main" id="myDIV">
+        
+	<div class="main-container c1">
+            <div class="thecard card1">
+                <div class="thefront f1">
+                    <img src="icons/iot.png" width="100%" height="90%" >
+                </div>
+                <div class="theback b1"  onclick="ws1()">
+                   
+
+                </div>
+            </div>
+        </div>
+
+        <div class="main-container c2">
+            <div class="thecard card1">
+                <div class="thefront f1">
+                     <img src="icons/calc.png" width="100%" height="90%" >
+                </div>
+                <div class="theback b1"onclick="ws2();">
+                   
+
+                </div>
+            </div>
+        </div>
+
+        <div class="main-container c3">
+            <div class="thecard card1">
+                <div class="thefront f1">
+                     <img src="icons/calen.png" width="100%" height="90%" >
+                </div>
+                <div class="theback b1">
+                   
+
+                </div>
+            </div>
+        </div>
+
+        <div class="main-container c4">
+            <div class="thecard card1">
+                <div class="thefront f1">
+                    <img src="icons/map.png" width="100%" height="90%" >
+                </div>
+                <div class="theback b1">
+                  
+                </div>
+            </div>
+        </div>
+
+        <div class="main-container c5">
+            <div class="thecard card1">
+                <div class="thefront f1">
+                     <img src="icons/weat.png" width="100%" height="90%" >
+                </div>
+                <div class="theback b1">
+                   
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main-container c6">
+            <div class="thecard card2">
+                <div class="thefront f2">
+                    <img src="icons/youtube.png" width="100%" height="90%" >
+                </div>
+                <div class="theback b2">
+                 
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+<div class="calbody" id= "calculator" > 
+<div class = "headcal" id="calculatorheader">
+<button onclick="rotat();">rotate</button>
+<button onclick="revers();">reverse</button>
+<button onclick="arotat();">arotat</button>
+
+<button onclick="myFunction2();">close</button><br>
+</div>
+<form name="lcdform" class = "calform">  
+<input id="lcdu" name="lcdsu" type="text" value="" /> 
+<input id="lcd" name="lcds" type="text" value="0" /> 
+</form> 
+<button id="num1" onclick="numone();">1</button>  
+<button id="num2" onclick="numtwo();">2</button>  
+<button id="num3" onclick="numthree();">3</button>  
+<button id="operationplus" onclick="operationplus();">+</button>
+<button id="clr" onclick="clr();">C</button>  <br>
+  
+  
+<button id="num4" onclick="numfour();">4</button>  
+<button id="num5" onclick="numfive();">5</button>  
+<button id="num6" onclick="numsix();">6</button>  
+<button id="operationmult" onclick="operationmult();">*</button>  
+<button id="operationsqrt" onclick="sqrots();">Sqrt()</button>  
+  <br>
+  
+<button id="num7" onclick="numseven();">7</button>  
+<button id="num8" onclick="numeight();">8</button>  
+<button id="num9" onclick="numnine();">9</button>  
+<button id="operationminus" onclick="operationminus();">-</button>
+<button id="operationraistop" onclick="operationraistop();">^</button>  
+<br>  
+ 
+  
+<button id="num0" onclick="numzero();">0</button> 
+<button id="num." onclick="numdot();">.</button>
+<button id="ce" onclick="ce();">CE</button> 
+<button id="operationdivid" onclick="operationdivid();">/</button>  
+<button id="sumbit" onclick="equalsto();">=</button>  
+<br>  
+</div>  
+
+<script src="menu.js">
+
+</script>
+
+
+
+</body>
+
+</html>

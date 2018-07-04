@@ -1,0 +1,163 @@
+
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <style>
+        
+       
+#calculator
+{
+    width: 250px;
+    height: 350px;
+    border: 5px solid red;
+    text-align:center;
+    background: lightgreen;
+    margin:150px auto;
+    box-shadow: 0px 0px 30px gray;
+}
+
+#display
+{
+  margin-top:  30px;
+  margin-bottom: 20px;
+  width: 220px;
+  height: 30px;
+  border: 1px solid red;
+  text-align:right;
+  font: 20px bold;
+  color: blue;
+}
+
+#keys
+{
+  width:41px;
+  height: 35px;
+  margin-left: 15px;
+
+  cursor: pointer;
+
+}
+
+#keys:hover
+{
+  background: yellow;
+  font-weight: bold;
+}
+        
+        </style>
+    </head>
+<title>Calculator</title>
+
+<body>
+
+	x: <input type="text" id="x"><br>
+    y: <input type="text" id="y"><br>
+    <input type="button" id="b1" value="check" onclick="myfunction();">
+    <input type="button" id="b2" value="move" onclick="mymove();">
+    
+    <div id="cursor" style="background-color:cyan;width:5px;height:5px;position:absolute;"></div>
+    
+    <p id="par"></p>
+    
+    <div id="calculator">
+        <form>
+                <input type="text" id="display" disabled><br>
+
+                <input type="button" value="C" id="keys" onclick="addtoscreen('c')">
+                <input type="button" value="%" id="keys" onclick="addtoscreen('+')">
+                <input type="button"value="<--"id="keys" onclick="backspace()">
+                <input type="button" value="=" id="keys" onclick="answer()"><br><br>
+
+                <input type="button" value="9" id="keys" onclick="addtoscreen('9')">
+                <input type="button" value="8" id="keys" onclick="addtoscreen('8')">
+                <input type="button" value="7" id="keys" onclick="addtoscreen('7')">
+                <input type="button" value="*" id="keys" onclick="addtoscreen('*')"><br><br>
+
+                <input type="button" value="6" id="keys" onclick="addtoscreen('6')">
+                <input type="button" value="5" id="keys" onclick="addtoscreen('5')">
+                <input type="button" value="4" id="keys" onclick="addtoscreen('4')">
+                <input type="button" value="-" id="keys" onclick="addtoscreen('-')"><br><br>
+
+                <input type="button" value="3" id="keys" onclick="addtoscreen('3')">
+                <input type="button" value="2" id="keys" onclick="addtoscreen('2')">
+                <input type="button" value="1" id="keys" onclick="addtoscreen('1')">
+                <input type="button" value="+" id="keys" onclick="addtoscreen('+')"><br><br>
+
+                <input type="button" value="0" id="keys" onclick="addtoscreen('0')">
+                <input type="button" value="." id="keys" onclick="addtoscreen('.')">
+                <input type="button" value="/" id="keys" onclick="addtoscreen('/')">
+                <input type="button" value="X^2" id="keys" onclick="power()"><br>
+
+
+        </form>
+
+    </div>
+
+    <script>
+    
+    
+
+var box=document.getElementById('display');
+
+function addtoscreen(x)
+{
+  box.value+=x;
+
+  if(x=='c')
+  {
+    box.value='';
+  }
+
+}
+
+function answer()
+{
+  x=box.value;
+  x=eval(x);
+  box.value=x;
+}
+
+function backspace()
+{
+  var number=box.value;
+  var len=number.length-1;
+  var newnumber=number.substring(0,len);
+  box.value=newnumber;
+  //alert()
+}
+
+function power()
+{
+  x=box.value;
+  x=Math.pow(x,2);
+  box.value=x;
+}
+
+function myfunction() {
+
+  var x1=document.getElementById("x").value;
+  var y1=document.getElementById("y").value;
+  var p=document.getElementById("cursor");
+  p.style.top=y1+"px";
+  p.style.left=x1+"px";
+  var p1=document.getElementById("par");
+  var ele=document.elementsFromPoint(x1,y1);
+  ele[1].click();
+  p1.innerHTML=ele[1].id;
+}
+
+function mymove() {
+
+  var x2=document.getElementById("x").value;
+  var y2=document.getElementById("y").value;
+  var p2=document.getElementById("cursor");
+  p2.style.top=y2+"px";
+  p2.style.left=x2+"px";
+}
+    
+    </script>
+</body>
+
+</html>

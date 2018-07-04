@@ -1,0 +1,11 @@
+<html>
+
+<script>
+  var source = new EventSource('/event_stream');
+  source.onmessage = function(event){
+    console.log(event.data);
+    var jobj = JSON.parse(event.data);
+    console.log(jobj.x,jobj.y,jobj.click);
+  };
+</script>
+</html> 

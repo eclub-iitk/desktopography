@@ -1,0 +1,259 @@
+/* THE MAINCONTAINER HOLDS EVERYTHING */
+.main{
+
+    position: absolute;
+    width: 20%;
+
+    height: 25%;
+    top: 100px;
+    left: 100px;  
+    display: none; 
+    /*background-color: cyan; */
+   
+}
+.main-container {
+    position: absolute;
+    width: 25%;
+    height: 45%;
+    background: none;
+    
+    transform: translate(-50%, -50%);
+}
+.c1{
+    top: 25%;
+    left: 20%;
+}
+
+.c2{
+    top: 25%;
+    left: 50%;
+}
+.c3{
+    top: 25%;
+    left: 80%;
+}
+
+.c4{
+    top: 75%;
+    left: 20%;
+}
+.c5{
+    top: 75%;
+    left: 50%;
+}
+
+.c6{
+    top: 75%;
+    left: 80%;
+}
+
+/* THE CARD HOLDS THE FRONT AND BACK FACES */
+
+.thecard {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+    transition: all 1.0s ease;
+}
+
+/* THE PSUEDO CLASS CONTROLS THE FLIP ON MOUSEOVER AND MOUSEOUT */
+
+.thecard:hover {
+    transform: rotateY(180deg);
+}
+
+/* THE FRONT FACE OF THE CARD, WHICH SHOWS BY DEFAULT */
+
+.thefront {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background:#4285F4;
+    color: #000;
+
+    
+    
+}
+
+/* THE BACK FACE OF THE CARD, WHICH SHOWS ON MOUSEOVER */
+
+.theback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background: #009B77;
+    color: #333;
+    text-align: center;
+    transform: rotateY(180deg);
+}
+
+/*This block (starts here) is merely styling for the flip card, and is NOT an essential part of the flip code */
+
+.thefront h1,
+.theback h1 {
+    font-family: 'zilla slab', sans-serif;
+    padding: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+}
+
+.thefront p,
+.theback p {
+    font-family: 'zilla slab', sans-serif;
+    padding: 30px;
+    font-weight: normal;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+body{
+//background: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+//background:  linear-gradient(to left, #648880, #293f50);
+//background-image: linear-gradient(to left, #04142d, #0a1b35, #11223c, #172944, #1e304c);
+}        
+
+.calbody{  
+ background-color: rgb(46, 52, 54);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+position:absolute;
+  z-index: 9;
+            resize:both;
+            overflow: auto;
+ //border: 1px solid #ff0;  
+ padding: 10px;  
+ left: 600px;  
+ width: 20em;
+height:20em;  
+/*width: 20%;
+height: 25%;*/
+ 	background-image:none;
+	color: red;
+	top:100px;
+	//bottom: 250px;
+    	//right: 300px;
+	display: none;
+}  
+.calform{
+
+height:27%
+
+}
+#lcdu{  
+resize:both; 
+color: grey;  
+ text-align: right;  
+ width: 100%;
+height:30%;  
+ font-size: 120%;  
+   
+}  
+#lcd{  
+resize:both; 
+ text-align: right;  
+ width: 100%;  
+ height:40%;  
+ font-size: 120%;  
+   
+}  
+  
+#calculator button{  
+width: 18.75%;  
+height: 15.625%;  
+font-size: 120%;  
+border:none;
+border-radius: 12.5%;
+background-color: rgb(46, 52, 54);
+color:rgb(255, 255, 255);
+  
+}  
+  
+#calculator button:hover{  
+background-color: rgb(245, 121, 0);
+color:rgb(255, 255, 255);  
+ }  
+
+
+#calculator button:pressed {
+border:13.56%
+}
+
+.headcal{
+width: 100%;
+
+}
+
+.headcal button{  
+width: 30.75%;  
+height: 8.625%;  
+font-size: 100%;  
+border:none;
+border-radius: 12.5%;
+background-color: white;
+color:rgb(255, 255, 255);
+  
+}  
+  
+.headcal button:hover{  
+background-color: rgb(245, 121, 0);
+color:rgb(255, 255, 255);  
+ }  
+
+
+.headcal button:pressed {
+border:13.56%
+}
+
+
+.show {
+display:block;
+animation: fadein 2s;
+}
+.hide{
+display:none;
+
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+
+.clkrotate{
+animation: fadein 2s;
+transform: rotate(90deg);
+}
+
+.calreverse{
+animation: fadein 2s;
+transform: rotate(180deg);
+}
+
+.aclkrotate{
+animation: fadein 2s;
+transform: rotate(270deg);
+}

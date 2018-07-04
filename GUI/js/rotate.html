@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+    width: 300px;
+    height: 300px;
+    background-color: yellow;
+    border: 1px solid black;
+}
+
+div#myDiv {
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Safari */
+    transform: rotate(45deg); /* Standard syntax */
+}
+</style>
+
+<script>document.getElementById("myDiv").style.display="none";</script>
+
+</head>
+<body>
+Click on default to go to the Initial page.<br><br>
+<script>
+function init(){
+	document.getElementById("myDiv").style.display="none";
+    document.getElementById("odiv").style.display="block";
+}
+function rotation(){
+	document.getElementById("myDiv").style.display="block";
+    document.getElementById("odiv").style.display="none";
+}
+</script>
+
+<button onclick="init()">Default</button>
+
+
+<div id="odiv">
+<button onclick="rotation();">Rotate</button>
+This a normal division element.Click on rotate to rotate the division
+</div>
+
+<div id="myDiv">
+
+This division element is rotated clockwise 90 degrees.
+Click on default again to go back to the initial division.
+</div>
+
+
+
+</body>
+</html>
+

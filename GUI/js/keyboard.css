@@ -1,0 +1,87 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    }
+    body {
+    font: 71%/1.5 Verdana, Sans-Serif;
+    background: #eee;
+    }
+    #container {
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    resize: both;
+    overflow: auto;
+    margin: 20px auto;
+    width: 688px;
+    height: 1000 px;
+    border: 1px solid black;
+    }
+    #write {
+    margin: 0 0 5px;
+    padding: 5px;
+    width: 671px;
+    height: 60px;
+    font: 1em/1.5 Verdana, Sans-Serif;
+    background: #fff;
+    border: 1px solid #f9f9f9;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    }
+    #keyboard {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    }
+        #keyboard li {
+        float: left;
+        margin: 0 5px 5px 0;
+        width: 5.814%;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background: #fff;
+        border: 1px solid #f9f9f9;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        }
+            .capslock, .tab, .left-shift {
+            clear: left;
+            }
+                #keyboard .tab, #keyboard .delete {
+                width: 10.174%;
+                }
+                #keyboard .capslock {
+                width: 11.628%;
+                }
+                #keyboard .return {
+                width: 11.192%;
+                }
+                #keyboard .left-shift {
+                width: 13.808%;
+                }
+                #keyboard .right-shift {
+                width: 15.843%;
+                }
+            .lastitem {
+            margin-right: 0;
+            }
+            .uppercase {
+            text-transform: uppercase;
+            }
+            #keyboard .space {
+            clear: left;
+            width: 98.9825%;
+            }
+            .on {
+            display: none;
+            }
+            #keyboard li:hover {
+            position: relative;
+            top: 1px;
+            left: 1px;
+            border-color: #e5e5e5;
+            background-color: aquamarine
+            cursor: pointer;
+            }
