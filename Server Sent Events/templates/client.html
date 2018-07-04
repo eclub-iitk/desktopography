@@ -1,11 +1,629 @@
+<!DOCTYPE html>
 <html>
 
-<script>
-  var source = new EventSource('/event_stream');
+<head>
+    <meta charset="utf-8" />
+
+    <title>CSS Flip Cards</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="cards.css" />
+
+
+    <style>
+	/* THE MAINCONTAINER HOLDS EVERYTHING */
+.main{
+
+    position: absolute;
+    width: 20%;
+
+    height: 25%;
+    top: 100px;
+    left: 100px;  
+    display: none; 
+    /*background-color: cyan; */
+   
+}
+.main-container {
+    position: absolute;
+    width: 25%;
+    height: 45%;
+    background: none;
+    
+    transform: translate(-50%, -50%);
+}
+.c1{
+    top: 25%;
+    left: 20%;
+}
+
+.c2{
+    top: 25%;
+    left: 50%;
+}
+.c3{
+    top: 25%;
+    left: 80%;
+}
+
+.c4{
+    top: 75%;
+    left: 20%;
+}
+.c5{
+    top: 75%;
+    left: 50%;
+}
+
+.c6{
+    top: 75%;
+    left: 80%;
+}
+
+/* THE CARD HOLDS THE FRONT AND BACK FACES */
+
+.thecard {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+    transition: all 1.0s ease;
+}
+
+/* THE PSUEDO CLASS CONTROLS THE FLIP ON MOUSEOVER AND MOUSEOUT */
+
+.thecard:hover {
+    transform: rotateY(180deg);
+}
+
+/* THE FRONT FACE OF THE CARD, WHICH SHOWS BY DEFAULT */
+
+.thefront {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background:#4285F4;
+    color: #000;
+
+    
+    
+}
+
+/* THE BACK FACE OF THE CARD, WHICH SHOWS ON MOUSEOVER */
+
+.theback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background: #009B77;
+    color: #333;
+    text-align: center;
+    transform: rotateY(180deg);
+}
+
+/*This block (starts here) is merely styling for the flip card, and is NOT an essential part of the flip code */
+
+.thefront h1,
+.theback h1 {
+    font-family: 'zilla slab', sans-serif;
+    padding: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+}
+
+.thefront p,
+.theback p {
+    font-family: 'zilla slab', sans-serif;
+    padding: 30px;
+    font-weight: normal;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+body{
+//background: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+//background:  linear-gradient(to left, #648880, #293f50);
+//background-image: linear-gradient(to left, #04142d, #0a1b35, #11223c, #172944, #1e304c);
+}        
+
+.calbody{  
+ background-color: rgb(46, 52, 54);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+position:absolute;
+  z-index: 9;
+            resize:both;
+            overflow: auto;
+ //border: 1px solid #ff0;  
+ padding: 10px;  
+ left: 600px;  
+ width: 20em;
+height:20em;  
+/*width: 20%;
+height: 25%;*/
+ 	background-image:none;
+	color: red;
+	top:100px;
+	//bottom: 250px;
+    	//right: 300px;
+	display: none;
+}  
+.calform{
+
+height:27%
+
+}
+#lcdu{  
+resize:both; 
+color: grey;  
+ text-align: right;  
+ width: 100%;
+height:30%;  
+ font-size: 120%;  
+   
+}  
+#lcd{  
+resize:both; 
+ text-align: right;  
+ width: 100%;  
+ height:40%;  
+ font-size: 120%;  
+   
+}  
+  
+#calculator button{  
+width: 18.75%;  
+height: 15.625%;  
+font-size: 120%;  
+border:none;
+border-radius: 12.5%;
+background-color: rgb(46, 52, 54);
+color:rgb(255, 255, 255);
+  
+}  
+  
+#calculator button:hover{  
+background-color: rgb(245, 121, 0);
+color:rgb(255, 255, 255);  
+ }  
+
+
+#calculator button:pressed {
+border:13.56%
+}
+
+.headcal{
+width: 100%;
+
+}
+
+.headcal button{  
+width: 30.75%;  
+height: 8.625%;  
+font-size: 100%;  
+border:none;
+border-radius: 12.5%;
+background-color: white;
+color:rgb(255, 255, 255);
+  
+}  
+  
+.headcal button:hover{  
+background-color: rgb(245, 121, 0);
+color:rgb(255, 255, 255);  
+ }  
+
+
+.headcal button:pressed {
+border:13.56%
+}
+
+
+.show {
+display:block;
+animation: fadein 2s;
+}
+.hide{
+display:none;
+
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+
+.clkrotate{
+animation: fadein 2s;
+transform: rotate(90deg);
+}
+
+
+.calreverse{
+animation: fadein 2s;
+transform: rotate(180deg);
+}
+
+.aclkrotate{
+animation: fadein 2s;
+transform: rotate(270deg);
+}
+    </style>
+
+
+    <script>
+
+	var source = new EventSource('/event_stream');
   source.onmessage = function(event){
     console.log(event.data);
     var jobj = JSON.parse(event.data);
     console.log(jobj.x,jobj.y,jobj.click);
+
+    var targLink = document.getElementById ("body1");
+    var clickEvent  = document.createEvent ('MouseEvents');
+    clickEvent.initEvent ('dblclick', true, true);
+    targLink.dispatchEvent (clickEvent);
+
+    if(jobj.click==true){
+	var x=jobj.x;
+	var y=jobj.y;
+	var clientHeight = document.getElementById('myDIV').offsetHeight;
+  var clientWidth = document.getElementById('myDIV').offsetWidth;
+
+  if(x>(window.innerWidth-clientWidth))
+      x=window.innerWidth-clientWidth;
+  if(y>(window.innerHeight-clientHeight))
+      y=window.innerHeight-clientHeight;
+  
+    document.getElementById("myDIV").style.top = y+"px";
+    document.getElementById("myDIV").style.left = x + "px";
+    document.getElementById("myDIV").style.display = "block";
+    }
+    
   };
+
+
+
+
+
+
+	function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+
+
+/*function fun1() {
+
+    var targLink = document.getElementById ("body1");
+    var clickEvent  = document.createEvent ('MouseEvents');
+    clickEvent.initEvent ('dblclick', true, true);
+    targLink.dispatchEvent (clickEvent);*/
+
+    /*var x2 = document.getElementById("x").value;
+    var y2 = document.getElementById("y").value;
+    //var output = document.getElementById("output");
+    var p3=document.getElementById("cursor");
+    p3.style.top=y2+"px";
+    p3.style.left=x2+"px";
+    var elements = document.elementsFromPoint(x2,y2);
+    elements[1].dblclick();*/
+    //document.write(elements[1].id);
+    /*for(var i = 0; i < elements.length; i++) {
+    output.textContent += elements[i].localName;
+    if (i < elements.length - 1) {
+      output.textContent += " < ";
+    }
+  }*/
+    //document.write(elems[0].id);
+/*}
+function fun2() {	
+    var x4 = document.getElementById("x").value;
+    var y4 = document.getElementById("y").value;
+    //var output = document.getElementById("output");
+    var p4=document.getElementById("cursor");
+    p4.style.top=y4+"px";
+    p4.style.left=x4+"px";
+    var elements = document.elementsFromPoint(x4,y4);
+    elements[1].click();*/
+    //document.write(elements[1].id);
+    /*for(var i = 0; i < elements.length; i++) {
+    output.textContent += elements[i].localName;
+    if (i < elements.length - 1) {
+      output.textContent += " < ";
+    }
+  }*/
+    //document.write(elems[0].id);
+//}
+function mymove() {
+
+  var x3=document.getElementById("x").value;
+  var y3=document.getElementById("y").value;
+  var p2=document.getElementById("cursor");
+  p2.style.top=y3+"px";
+  p2.style.left=x3+"px";
+}
+
+
+
+var x1;
+var y1;
+
+/*function doubleclick() {
+
+  //x=event.clientX;
+  //y=event.clientY;
+  //document.write("koojhg");
+  var x=document.getElementById("x").value;
+  var y=document.getElementById("y").value;
+
+  //var clientHeight = document.getElementById('myDIV').clientHeight;
+  //var clientWidth = document.getElementById('myDIV').clientWidth;
+
+  var clientHeight = document.getElementById('myDIV').offsetHeight;
+  var clientWidth = document.getElementById('myDIV').offsetWidth;
+
+  if(x>(window.innerWidth-clientWidth))
+      x=window.innerWidth-clientWidth;
+  if(y>(window.innerHeight-clientHeight))
+      y=window.innerHeight-clientHeight;
+  
+    document.getElementById("myDIV").style.top = y+"px";
+    document.getElementById("myDIV").style.left = x + "px";
+    document.getElementById("myDIV").style.display = "block";
+
+    //var p=document.getElementById("print");
+    //p.innerHTML=clientHeight+" "+clientWidth+" "+y+" "+x+" "+event.clientY+" "+event.clientX;
+}
+
+document.addEventListener("dblclick", doubleclick);*/
+
+function ws1() {
+    var clientHeight = document.getElementById('myDIV').clientHeight;
+    var clientWidth = document.getElementById('myDIV').clientWidth;
+    
+    if(clientHeight>200){myFunction();}
+    alert(clientHeight +" "+clientWidth);
+}
+
+
+function ws2() {
+    document.getElementById("myDIV").style.display="none";
+    document.getElementById("calculator").style.top=document.getElementById("myDIV").style.top;
+    document.getElementById("calculator").style.left=document.getElementById("myDIV").style.left;
+    document.getElementById("calculator").style.display="block";
+}
+
+
+
+function view() {
+    var viewFullScreen = document.getElementById("view-fullscreen");
+    if (viewFullScreen) {
+        viewFullScreen.addEventListener("click", function () {
+            var docElm = document.documentElement;
+            if (docElm.requestFullscreen) {
+                docElm.requestFullscreen();
+            }
+            else if (docElm.msRequestFullscreen) {
+                docElm = document.body; //overwrite the element (for IE)
+                docElm.msRequestFullscreen();
+            }
+            else if (docElm.mozRequestFullScreen) {
+                docElm.mozRequestFullScreen();
+            }
+            else if (docElm.webkitRequestFullScreen) {
+                docElm.webkitRequestFullScreen();
+            }
+        }, false);
+    }
+}
+function cancel(){
+    var cancelFullScreen = document.getElementById("cancel-fullscreen");
+    if (cancelFullScreen) {
+        cancelFullScreen.addEventListener("click", function () {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+            else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+            else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            }
+            else if (document.webkitCancelFullScreen) {
+                document.webkitCancelFullScreen();
+            }
+        }, false);
+    }
+    
+}
+
+    </script>
+
+
+
+</head>
+
+<body bgcolor="#303030">
+    
+    x: <input type="text" id="x"><br>
+    y: <input type="text" id="y"><br>
+    <input type="button" id="b1" value="doubleclick" onclick="fun1();">
+    <input type="button" id="b3" value="singleclick" onclick="fun2();">
+    <input type="button" id="b2" value="move" onclick="mymove();">
+
+
+    <div id="body1" style="width:100%;height:1080px;" ondblclick="doubleclick()">
+    
+    <div id="cursor" style="background-color:cyan;width:5px;height:5px;position:absolute;"></div>
+    <!--<div id="output" style="background-color:red;"></div>-->
+
+
+
+	
+    <!--<div id="print"></div>-->
+
+    <button id="view-fullscreen" onclick="view();">Fullscreen</button>
+    <button id="cancel-fullscreen" onclick="cancel();">Cancel fullscreen</button>
+
+    <div class="main" id="myDIV">
+        <div id="print"></div>
+	<div class="main-container c1">
+            <div class="thecard card1">
+                <div class="thefront f1">
+                    <img src="icons/iot.png" width="100%" height="90%" >
+                </div>
+                <div class="theback b1"  onclick="ws1()">
+                   
+
+                </div>
+            </div>
+        </div>
+
+        <div class="main-container c2">
+            <div class="thecard card1">
+                <div class="thefront f1">
+                     <img src="icons/calc.png" width="100%" height="90%" >
+                </div>
+                <div class="theback b1"onclick="ws2();">
+                   
+
+                </div>
+            </div>
+        </div>
+
+        <div class="main-container c3">
+            <div class="thecard card1">
+                <div class="thefront f1">
+                     <img src="icons/calen.png" width="100%" height="90%" >
+                </div>
+                <div class="theback b1">
+                   
+
+                </div>
+            </div>
+        </div>
+
+        <div class="main-container c4">
+            <div class="thecard card1">
+                <div class="thefront f1">
+                    <img src="icons/map.png" width="100%" height="90%" >
+                </div>
+                <div class="theback b1">
+                  
+                </div>
+            </div>
+        </div>
+
+        <div class="main-container c5">
+            <div class="thecard card1">
+                <div class="thefront f1">
+                     <img src="icons/weat.png" width="100%" height="90%" >
+                </div>
+                <div class="theback b1">
+                   
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main-container c6">
+            <div class="thecard card2">
+                <div class="thefront f2">
+                    <img src="icons/youtube.png" width="100%" height="90%" >
+                </div>
+                <div class="theback b2">
+                 
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+<div class="calbody" id= "calculator" > 
+<div class = "headcal" id="calculatorheader">
+<button onclick="rotat();">rotate</button>
+<button onclick="revers();">reverse</button>
+<button onclick="arotat();">arotat</button>
+
+<button onclick="myFunction2();">close</button><br>
+</div>
+<form name="lcdform" class = "calform">  
+<input id="lcdu" name="lcdsu" type="text" value="" /> 
+<input id="lcd" name="lcds" type="text" value="0" /> 
+</form> 
+<button id="num1" onclick="numone();">1</button>  
+<button id="num2" onclick="numtwo();">2</button>  
+<button id="num3" onclick="numthree();">3</button>  
+<button id="operationplus" onclick="operationplus();">+</button>
+<button id="clr" onclick="clr();">C</button>  <br>
+  
+  
+<button id="num4" onclick="numfour();">4</button>  
+<button id="num5" onclick="numfive();">5</button>  
+<button id="num6" onclick="numsix();">6</button>  
+<button id="operationmult" onclick="operationmult();">*</button>  
+<button id="operationsqrt" onclick="sqrots();">Sqrt()</button>  
+  <br>
+  
+<button id="num7" onclick="numseven();">7</button>  
+<button id="num8" onclick="numeight();">8</button>  
+<button id="num9" onclick="numnine();">9</button>  
+<button id="operationminus" onclick="operationminus();">-</button>
+<button id="operationraistop" onclick="operationraistop();">^</button>  
+<br>  
+ 
+  
+<button id="num0" onclick="numzero();">0</button> 
+<button id="num." onclick="numdot();">.</button>
+<button id="ce" onclick="ce();">CE</button> 
+<button id="operationdivid" onclick="operationdivid();">/</button>  
+<button id="sumbit" onclick="equalsto();">=</button>  
+<br>  
+</div>  
+
+
+</div>
+
+<script src="menu.js">
+
 </script>
-</html> 
+
+
+
+</body>
+
+</html>
