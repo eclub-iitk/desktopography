@@ -7,7 +7,7 @@ from cythontry import threshold_fast
 from cythontry import align
 from cythontry import segment
 import cmath 
-from Ycrcb import ycbcr
+
 from cythontry import coordinates_gui_to_kinect
 from cythontry import coordinates_kinect_to_gui
 import time
@@ -65,37 +65,37 @@ def update():
    
     depthnew = depth * np.logical_and(depth >= current_depth - threshold,depth <= current_depth + threshold)
     depthnew = depthnew.astype(np.uint8)
-    cv.imshow("Depth",depthnew)
+    #cv.imshow("Depth",depthnew)
     h = depth.shape[0]
     w = depth.shape[1]
     array,_ = freenect.sync_get_video()
     array = cv.cvtColor(array,cv.COLOR_RGB2BGR)
-    cv.imshow('Video', array)
+    #cv.imshow('Video', array)
     image1=np.zeros(shape=(h,w,3),dtype = float) 
     depth2 = np.zeros((480,640))  
     image3=np.zeros(shape=(h,w,3),dtype = float)
     img1,new_depth = align(array,depth,image1,depth2)   
     image2 = np.zeros(shape=(h,w,3),dtype = float)
-    img2 = segment(img1,new_depth, image2, 1.0,1.😎
+    img2 = segment(img1,new_depth, image2, 1.0,1.8)
     img2 = np.asarray(img2)
     img2 = img2.astype(np.uint8)
-    cv.imshow("segmented image",img2)    
+    #cv.imshow("segmented image",img2)    
     new_depth = np.asarray(new_depth)
     raw_aligned_depth = new_depth.copy()
     new_depth = new_depth.astype(np.uint8)
-    cv.imshow("aligned depth",new_depth)    
+    #cv.imshow("aligned depth",new_depth)    
     hsv = cv.cvtColor(img2, cv.COLOR_BGR2HSV)
     mask = cv.inRange(hsv, (0,48,0), (50,255,255)) 
     ycrcb = cv.cvtColor(array, cv.COLOR_BGR2YCrCb)
-    mask2 = ycbcr(ycrcb) 
-    res2 = cv.bitwise_and(ycrcb, ycrcb, mask = mask2)
-    mask2 = cv.dilate(mask2, None, iterations = 1)           
+    #mask2 = ycbcr(ycrcb) 
+    #res2 = cv.bitwise_and(ycrcb, ycrcb, mask = mask2)
+    #mask2 = cv.dilate(mask2, None, iterations = 1)           
     test_kernel = np.ones((5,5),np.uint8)    
     mask = cv.medianBlur(mask,7)   
     mask3 = mask
     mask5 = cv.cvtColor(mask3,cv.COLOR_GRAY2BGR)
-    cv.imshow("mask3",mask3)
-    ,cnts, = cv.findContours(mask3,cv.RETR_EXTERNAL,cv.CHAIN_APPROX_SIMPLE)
+    #cv.imshow("mask3",mask3)
+    _,cnts,_ = cv.findContours(mask3,cv.RETR_EXTERNAL,cv.CHAIN_APPROX_SIMPLE)
     mask5 = cv.drawContours(mask5,cnts,-1,(255,0,255),3)
     maxArea = 0.0
     maxiter = 0
@@ -130,7 +130,7 @@ def update():
                 fingertips.append(start)
                 mask5 = cv.circle(img2,start,5,[255,0,0],-1)
 
-    cv.imshow("mask5",mask5)
+    #cv.imshow("mask5",mask5)
     finger_distance = []
     flag = 0
     for finger in fingertips:
@@ -170,23 +170,25 @@ def update():
         if(finger_distance[i] > 6 ):
             j1+=1
     print(str(j1)+ "/" + str(len(finger_distance)))        
-    cv.imshow("contour",mask5)
+    #cv.imshow("contour",mask5)
     cv.setMouseCallback("Depth",coords_mouse_disp,depth)
+    return coordinates_kinect_to_gui(fingertips[0][0],fingertips[0][1])
+    
      
-cv.namedWindow('Depth')
-cv.createTrackbar('threshold', 'Depth', threshold,     500,  change_threshold)
-cv.createTrackbar('depth',     'Depth', current_depth, 2048, change_depth)
-cv.namedWindow('img2')
-cv.createTrackbar('dmin','img2', min ,200, change_min)
-cv.createTrackbar('dmax','img2', max ,200, change_max)
+#cv.namedWindow('Depth')
+#cv.createTrackbar('threshold', 'Depth', threshold,     500,  change_threshold)
+#cv.createTrackbar('depth',     'Depth', current_depth, 2048, change_depth)
+#cv.namedWindow('img2')
+#cv.createTrackbar('dmin','img2', min ,200, change_min)
+#cv.createTrackbar('dmax','img2', max ,200, change_max)
 
 
 app = Flask(__name__)
-
-def get_finger_state():
-    time.sleep(0.1)
-    x = random.randint(200,400)
-    y =random.randint(200,400)
+flag1 = 0
+def get_finger_state(x,y):
+    #time.sleep(0.1)
+    #x = random.randint(200,400)
+    #y =random.randint(200,400)
     clicked = True
     data = { "x" : x, "y" : y, "click" : clicked}
     return data
@@ -197,14 +199,21 @@ def index():
 def stream():
     def event_stream():
         while True:
-            update()
-            k = cv.waitKey(5) & 0xFF
-            if k == 27:
-                break
+            #if(flag1 == 0):
+            x,y = update() 
+            #k = cv.waitKey(5) & 0xFF
+            #if k == 27:
+            #    break
+            data = get_finger_state(x,y)
+            #print(x,y)
+            #data.x = int(x)
+            #data.y = int(y)
             yield 'data: %s\n\n' % json.dumps(data) 
     return Response(event_stream(), mimetype="text/event-stream")
 
 if __name__ == "__main__":
     app.debug = True
+    #update()
     server = WSGIServer(("", 5000), app)
     server.serve_forever()
+
