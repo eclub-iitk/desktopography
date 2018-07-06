@@ -7,16 +7,15 @@ from cythontry import threshold_fast
 from cythontry import align
 from cythontry import segment
 import cmath 
-from Ycrcb import ycbcr
 from cythontry import coordinates_gui_to_kinect
 from cythontry import coordinates_kinect_to_gui
 import time
-from flask import Flask, Response
-from gevent.pywsgi import WSGIServer
-from gevent.queue import Queue
-from flask import render_template
-import json
-import random
+#from flask import Flask, Response
+#from gevent.pywsgi import WSGIServer
+#from gevent.queue import Queue
+#from flask import render_template
+#import json
+#import random
 import Queue as Q
 
 
@@ -66,12 +65,12 @@ def update():
    
     depthnew = depth * np.logical_and(depth >= current_depth - threshold,depth <= current_depth + threshold)
     depthnew = depthnew.astype(np.uint8)
-    cv.imshow("Depth",depthnew)
+    #cv.imshow("Depth",depthnew)
     h = depth.shape[0]
     w = depth.shape[1]
     array,_ = freenect.sync_get_video()
     array = cv.cvtColor(array,cv.COLOR_RGB2BGR)
-    cv.imshow('Video', array)
+    #cv.imshow('Video', array)
     image1=np.zeros(shape=(h,w,3),dtype = float) 
     depth2 = np.zeros((480,640))  
     image3=np.zeros(shape=(h,w,3),dtype = float)
@@ -80,17 +79,13 @@ def update():
     img2 = segment(img1,new_depth, image2, 1.0,1.8)
     img2 = np.asarray(img2)
     img2 = img2.astype(np.uint8)
-    cv.imshow("segmented image",img2)    
+    #cv.imshow("segmented image",img2)    
     new_depth = np.asarray(new_depth)
     raw_aligned_depth = new_depth.copy()
     new_depth = new_depth.astype(np.uint8)
-    cv.imshow("aligned depth",new_depth)    
+    #cv.imshow("aligned depth",new_depth)    
     hsv = cv.cvtColor(img2, cv.COLOR_BGR2HSV)
-    mask = cv.inRange(hsv, (0,48,0), (50,255,255)) 
-    ycrcb = cv.cvtColor(array, cv.COLOR_BGR2YCrCb)
-    mask2 = ycbcr(ycrcb) 
-    res2 = cv.bitwise_and(ycrcb, ycrcb, mask = mask2)
-    mask2 = cv.dilate(mask2, None, iterations = 1)           
+    mask = cv.inRange(hsv, (0,48,0), (50,255,255))          
     test_kernel = np.ones((5,5),np.uint8)    
     mask = cv.medianBlur(mask,7)   
     mask3 = mask
@@ -114,11 +109,11 @@ def update():
     #skinMask2 = cv.rectangle(skinMask2,(x,y),(x+w,y+h),(0,255,0),2)   
     kernel = cv.getStructuringElement(cv.MORPH_ELLIPSE, (8, 8))
     kernel2 = cv.getStructuringElement(cv.MORPH_ELLIPSE, (3, 3))
-    erode_skin = cv.erode(skinMask3,kernel,iterations  = 3)
-    erode_skin = cv.dilate(erode_skin,kernel,iterations = 3)
+    erode_skin = cv.erode(skinMask3,kernel,iterations  = 4)
+    erode_skin = cv.dilate(erode_skin,kernel,iterations = 4)
     cv.imshow("erode",erode_skin)
     new_skin = skinMask3 - erode_skin
-    #new_skin = cv.erode(new_skin,kernel2,iterations  = 1)    
+    new_skin = cv.erode(new_skin,kernel2,iterations  = 1)    
     new_skin = cv.medianBlur(new_skin,7)
     cv.imshow("new",new_skin)
     _,cnts2,_ = cv.findContours(new_skin,cv.RETR_TREE,cv.CHAIN_APPROX_SIMPLE)
@@ -130,6 +125,7 @@ def update():
         qu.put((-1*cv.contourArea(cnts2[i]),i))
     skin_2 = erode_2.copy()
     how_many = len(cnts2)
+    qu.get()
     if(len(cnts2) > 5):
         how_many = 5
     for i in range(how_many):
@@ -142,7 +138,8 @@ def update():
             cX = int(M["m10"] / M["m00"])
             cY = int(M["m01"] / M["m00"])
             #skin_2 = cv.circle(skin_2,(int(x),int(y)),3,(0,0,255),3)
-            skin_2 = cv.circle(skin_2,(int(cX),int(cY)),3,(0,255,0),5)    
+            skin_2 = cv.circle(skin_2,(int(cX),int(cY)),1,(0,255,0),5)    
+            img2 = cv.circle(img2,(int(cX),int(cY)),1,(0,255,0),5)
             #skin_2 = cv.ellipse(skin_2,ellipse,(0,255,0),2)
 
             #print(x,y,MA,ma,angle)"""
@@ -150,6 +147,7 @@ def update():
             a = 1+2        
     cv.imshow("contour",skinMask2)
     cv.imshow("skin_2",skin_2)
+    cv.imshow("img2",img2)
 
         #cv.imshow("eroded",skinMask - erode_skin)
     hsv[:,:,2] = 0
@@ -227,7 +225,7 @@ def update():
         if(finger_distance[i] > 6 ):
             j1+=1
     print(str(j1)+ "/" + str(len(finger_distance)))   '''     
-    cv.imshow("contour",mask5)
+    #cv.imshow("contour",mask5)
     cv.setMouseCallback("Depth",coords_mouse_disp,depth)
     
     
