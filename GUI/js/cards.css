@@ -248,6 +248,7 @@ animation: fadein 2s;
 transform: rotate(90deg);
 }
 
+
 .calreverse{
 animation: fadein 2s;
 transform: rotate(180deg);

@@ -10,7 +10,22 @@
     <script src="cards.js"></script>
 </head>
 
-<body bgcolor="#303030" ondblclick="doubleclick()">
+<body bgcolor="#303030">
+    
+    x: <input type="text" id="x"><br>
+    y: <input type="text" id="y"><br>
+    <input type="button" id="b1" value="doubleclick" onclick="fun1();">
+    <input type="button" id="b3" value="singleclick" onclick="fun2();">
+    <input type="button" id="b2" value="move" onclick="mymove();">
+
+
+    <div id="body1" style="width:100%;height:1080px;" ondblclick="doubleclick()">
+    
+    <div id="cursor" style="background-color:cyan;width:5px;height:5px;position:absolute;"></div>
+    <!--<div id="output" style="background-color:red;"></div>-->
+
+
+
 	
     <!--<div id="print"></div>-->
 
@@ -18,7 +33,7 @@
     <button id="cancel-fullscreen" onclick="cancel();">Cancel fullscreen</button>
 
     <div class="main" id="myDIV">
-        
+        <div id="print"></div>
 	<div class="main-container c1">
             <div class="thecard card1">
                 <div class="thefront f1">
@@ -48,7 +63,7 @@
                 <div class="thefront f1">
                      <img src="icons/calen.png" width="100%" height="90%" >
                 </div>
-                <div class="theback b1">
+                <div class="theback b1" onclick="ws3();">
                    
 
                 </div>
@@ -60,7 +75,7 @@
                 <div class="thefront f1">
                     <img src="icons/map.png" width="100%" height="90%" >
                 </div>
-                <div class="theback b1">
+                <div class="theback b1" onclick="ws4();">
                   
                 </div>
             </div>
@@ -84,7 +99,7 @@
                 <div class="thefront f2">
                     <img src="icons/youtube.png" width="100%" height="90%" >
                 </div>
-                <div class="theback b2">
+                <div class="theback b2" onclick="location.href='https://www.youtube.com/'">
                  
 
                 </div>
@@ -137,11 +152,219 @@
 <button id="operationdivid" onclick="operationdivid();">/</button>  
 <button id="sumbit" onclick="equalsto();">=</button>  
 <br>  
-</div>  
+</div> 
+
+
+<div id="calendar" style="border-style:solid;width:220;position:absolute;left:400px;top:400px;display:none;background-color:cyan;">
+<div class = "calendar1" id="calendarheader" style="background-color:cyan;">
+<button onclick="Rotat1();">Rotat1</button>
+<button onclick="Rotat2();">Rotat2</button>
+<button onclick="Rotat3();">Rotat3</button>
+<button onclick="calenclose();">close</button><br>
+</div>
+
+<script language="javascript" type="text/javascript">
+var day_of_week = new Array('Sun','Mon','Tue','Wed','Thu','Fri','Sat');
+var month_of_year = new Array('January','February','March','April','May','June','July','August','September','October','November','December');
+
+//  DECLARE AND INITIALIZE VARIABLES
+var Calendar = new Date();
+
+var year = Calendar.getFullYear();     // Returns year
+var month = Calendar.getMonth();    // Returns month (0-11)
+var today = Calendar.getDate();    // Returns day (1-31)
+var weekday = Calendar.getDay();    // Returns day (1-31)
+
+var DAYS_OF_WEEK = 7;    // "constant" for number of days in a week
+var DAYS_OF_MONTH = 31;    // "constant" for number of days in a month
+var cal;    // Used for printing
+
+Calendar.setDate(1);    // Start the calendar day at '1'
+Calendar.setMonth(month);    // Start the calendar month at now
+
+
+/* VARIABLES FOR FORMATTING
+NOTE: You can format the 'BORDER', 'BGCOLOR', 'CELLPADDING', 'BORDERCOLOR'
+      tags to customize your caledanr's look. */
+
+var TR_start = '<TR>';
+var TR_end = '</TR>';
+var highlight_start = '<TD WIDTH="30"><TABLE CELLSPACING=0 BORDER=1 BGCOLOR=DEDEFF BORDERCOLOR=CCCCCC><TR><TD WIDTH=20><B><CENTER>';
+var highlight_end   = '</CENTER></TD></TR></TABLE></B>';
+var TD_start = '<TD WIDTH="30"><CENTER>';
+var TD_end = '</CENTER></TD>';
+
+/* BEGIN CODE FOR CALENDAR
+NOTE: You can format the 'BORDER', 'BGCOLOR', 'CELLPADDING', 'BORDERCOLOR'
+tags to customize your calendar's look.*/
+
+cal =  '<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=0 BORDERCOLOR=BBBBBB><TR><TD>';
+cal += '<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=2>' + TR_start;
+cal += '<TD COLSPAN="' + DAYS_OF_WEEK + '" BGCOLOR="#EFEFEF"><CENTER><B>';
+cal += month_of_year[month]  + '   ' + year + '</B>' + TD_end + TR_end;
+cal += TR_start;
+
+//   DO NOT EDIT BELOW THIS POINT  //
+
+// LOOPS FOR EACH DAY OF WEEK
+for(index=0; index < DAYS_OF_WEEK; index++)
+{
+
+// BOLD TODAY'S DAY OF WEEK
+if(weekday == index)
+cal += TD_start + '<B>' + day_of_week[index] + '</B>' + TD_end;
+
+// PRINTS DAY
+else
+cal += TD_start + day_of_week[index] + TD_end;
+}
+
+cal += TD_end + TR_end;
+cal += TR_start;
+
+// FILL IN BLANK GAPS UNTIL TODAY'S DAY
+for(index=0; index < Calendar.getDay(); index++)
+cal += TD_start + '  ' + TD_end;
+
+// LOOPS FOR EACH DAY IN CALENDAR
+for(index=0; index < DAYS_OF_MONTH; index++)
+{
+if( Calendar.getDate() > index )
+{
+  // RETURNS THE NEXT DAY TO PRINT
+  week_day =Calendar.getDay();
+
+  // START NEW ROW FOR FIRST DAY OF WEEK
+  if(week_day == 0)
+  cal += TR_start;
+
+  if(week_day != DAYS_OF_WEEK)
+  {
+
+  // SET VARIABLE INSIDE LOOP FOR INCREMENTING PURPOSES
+  var day  = Calendar.getDate();
+
+  // HIGHLIGHT TODAY'S DATE
+  if( today==Calendar.getDate() )
+  cal += highlight_start + day + highlight_end + TD_end;
+
+  // PRINTS DAY
+  else
+  cal += TD_start + day + TD_end;
+  }
+
+  // END ROW FOR LAST DAY OF WEEK
+  if(week_day == DAYS_OF_WEEK)
+  cal += TR_end;
+  }
+
+  // INCREMENTS UNTIL END OF THE MONTH
+  Calendar.setDate(Calendar.getDate()+1);
+
+}// end for loop
+
+cal += '</TD></TR></TABLE></TABLE>';
+
+//  PRINT CALENDAR
+document.write(cal);
+
+//  End -->
+
+function calenclose() {
+    document.getElementById("myDIV").style.display="block";
+    document.getElementById("calendar").style.display="none";
+}
+
+function Rotat1() {
+   	 document.getElementById("calendar").classList.toggle("clkrotate");
+	
+	}
+
+function Rotat2() {
+   	 document.getElementById("calendar").classList.toggle("calreverse");
+	
+	}
+
+function Rotat3() {
+   	 document.getElementById("calendar").classList.toggle("aclkrotate");
+	
+	}
+
+</script>
+</div>
+
+<div id="mainmap" style="width:20%;height:25%;display:none;position:absolute;">
+<div class = "map1" id="mapheader" style="background-color:cyan;">
+<button onclick="R1();">R1</button>
+<button onclick="R2();">R2</button>
+<button onclick="R3();">R3</button>
+<button onclick="mapclose();">close</button><br>
+</div>
+<div id="map" style="width:100%;height:90%;"></div>
+
+</div>
+
+
+</div>
 
 <script src="menu.js">
 
 </script>
+
+<script type="text/javascript">
+var map;
+var markers = [];
+//var x = document.getElementById("demo");
+
+function myMap() {
+  var mapCanvas = document.getElementById("map");
+  var myCenter=new google.maps.LatLng(28.7041,77.1025);
+  var mapOptions = {center: myCenter, zoom: 4};
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+  //google.maps.event.addListener(map, 'click', function(event) {
+  
+  placeMarker(map, myCenter);
+    
+  //});
+}
+
+function placeMarker(map, location) {
+  var marker = new google.maps.Marker({
+    position: location,
+    map: map
+  });
+  
+  var infowindow = new google.maps.InfoWindow({
+    content: 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng()
+  });
+  infowindow.open(map,marker);
+  
+  markers.push(marker);
+}
+ 
+function mapclose() {
+    document.getElementById("myDIV").style.display="block";
+    document.getElementById("mainmap").style.display="none";
+}
+
+function R1() {
+   	 document.getElementById("mainmap").classList.toggle("clkrotate");
+	
+	}
+
+function R2() {
+   	 document.getElementById("mainmap").classList.toggle("calreverse");
+	
+	}
+
+function R3() {
+   	 document.getElementById("mainmap").classList.toggle("aclkrotate");
+	
+	}
+
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4qG7WIi9ajrdWEJRZVYZLeV3YcrjEdg8&callback=myMap"></script>
 
 
 
