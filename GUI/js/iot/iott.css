@@ -1,0 +1,552 @@
+.btn-group button {
+    background-color: coral;
+    border: none; /* Green border */
+    color: white; /* White text */
+   /* height: 100%;
+    width: 200px;*/
+    padding: 24px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    float: left; /* Float the buttons side by side */
+    font-size: 32px;
+}
+/* THE MAINCONTAINER HOLDS EVERYTHING */
+.main-container {
+    position: absolute;
+    width: 250px;
+    height: 320px;
+    background: none;
+    
+    transform: translate(-50%, -50%);
+}
+.home{
+    top: 180px;
+    left:370px;
+    width:500px;
+    
+}
+.light{
+    top: 180px;
+    left: 745px;
+    
+}
+
+.fan{
+    top: 180px;
+    left: 995px;
+}
+
+.cooler{
+    top: 500px;
+    left: 745px;
+}
+
+.music{
+    top: 500px;
+    left:995px;
+    
+}
+.date{
+    top: 500px;
+    left:245px;
+    
+}
+
+.weather-time{
+    top: 500px;
+    left:495px;
+    
+}
+/* THE CARD HOLDS THE FRONT AND BACK FACES */
+
+.thecard {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+    transition: all 1.0s ease;
+}
+
+/* THE PSUEDO CLASS CONTROLS THE FLIP ON MOUSEOVER AND MOUSEOUT */
+
+.thecard:hover {
+    transform: rotateY(180deg);
+}
+
+/* THE FRONT FACE OF THE CARD, WHICH SHOWS BY DEFAULT */
+
+.thefront {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background-color: darkgray;
+    box-shadow: green;
+    text-shadow: blue;
+}
+
+/* THE BACK FACE OF THE CARD, WHICH SHOWS ON MOUSEOVER */
+
+.theback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background-color: dimgrey; 
+    color: #333;
+    text-align: center;
+    transform: rotateY(180deg);
+}
+
+/*This block (starts here) is merely styling for the flip card, and is NOT an essential part of the flip code */
+
+.thefront h1,
+.theback h1 {
+    font-family: 'zilla slab', sans-serif;
+    padding: 30px;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+}
+
+.thefront p,
+.theback p {
+    font-family: 'zilla slab', sans-serif;
+    padding: 30px;
+    font-weight: normal;
+    font-size: 20px;
+    text-align: center;
+}
+.fH{
+    background-image: url(home.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.bH{background-image: url(home2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.fL{
+    background-color: chartreuse;
+    background-image: url(idea.svg);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.bL{
+    background-color: cornflowerblue;
+    background-image: url(light-bulb.svg);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/*
+#L1,#L2,#L3{
+    padding-top: 40px;
+    color: red;
+    background-color: inherit;
+    text-shadow: ;
+    box-shadow: ;
+    border: none;
+    text-decoration-color: darkgrey;
+    font-size: 20px;
+}
+#L1:hover,#L2:hover,#L3:hover{
+    background: #f44336;
+    color: white;
+    font-size: 35px;
+    border: none;
+}*/
+
+.fF{
+    background-color: darkturquoise;
+    background-image: url(fan.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.bF{
+    background-color: cornsilk;
+    background-image: url(fan2.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.fM{
+    background-color: darkgrey;
+    background-image: url(music.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center
+}
+.bM{background-color: burlywood;
+    background-image: url(headphones.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center
+    
+}
+.fW{background-color: burlywood;
+    background-image: url(cloud.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center
+    
+}
+.bW{background-color: floralwhite;
+    background-image: url(sunny.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center
+    
+}
+.fC{background-color: deeppink;
+    background-image: url(coolerf.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center
+    
+}
+.bC{background-color: cornflowerblue;
+    background-image: url(coolerb.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center
+    
+}
+.fD{background-color: darkmagenta;
+    background-image: url(wall-calendar.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center
+    
+}
+.bD{background-color: darkturquoise;
+    background-image: url(alarm-clock.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center
+    
+}
+
+.slidecontainer {
+    top:40px;
+    width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 25px; /* Specified height */
+    background: #028; 
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #4CAF50; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #4CAF50; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+*, *:before, *:after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+:root {
+	font-size: 8px;
+}
+body, input {
+	line-height: 1.5;
+}
+body {
+	background: #bbb;
+}
+input {
+	display: block;
+	margin-bottom: 1.5em;
+}
+main {
+	padding: 4em 14em 0 0em;
+	text-align: center;	
+}
+.l {
+	background-color: rgba(0,0,0,0.7);
+	border-radius: 0.75em;
+	box-shadow: 0.125em 0.125em 0 0.125em rgba(0,0,0,0.3) inset;
+	color: #fdea7b;
+	font-size: 5em;
+	display: inline-flex;
+	align-items: center;
+	margin: auto;
+	padding: 0.15em;
+	width: 3em;
+	height: 1.5em;
+	transition: background-color 0.1s 0.3s ease-out, box-shadow 0.1s 0.3s ease-out;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+.l:before, .l:after {
+	content: "";
+	display: block;
+}
+.l:before {
+	background-color: #d7d7d7;
+	border-radius: 50%;
+	width: 1.2em;
+	height: 1.2em;
+	transition: background-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
+	z-index: 1;
+}
+.l:after {
+	background:
+		linear-gradient(transparent 50%, rgba(0,0,0,0.15) 0) 0 50% / 50% 100%,
+		repeating-linear-gradient(90deg,#bbb 0,#bbb,#bbb 20%,#999 20%,#999 40%) 0 50% / 50% 100%,
+		radial-gradient(circle at 50% 50%,#888 25%, transparent 26%);
+	background-repeat: no-repeat;
+	border: 0.25em solid transparent;
+	border-left: 0.4em solid #d8d8d8;
+	border-right: 0 solid transparent;
+	transition: border-left-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
+	transform: translateX(-22.5%);
+	transform-origin: 25% 50%;
+	width: 1.2em;
+	height: 1em;
+}
+/* Checked */
+.l:checked {
+	background-color: rgba(0,0,0,0.45);
+	box-shadow: 0.125em 0.125em 0 0.125em rgba(0,0,0,0.1) inset;
+}
+.l:checked:before {
+	background-color: currentColor;
+	transform: translateX(125%)
+}
+.l:checked:after {
+	border-left-color: currentColor;
+	transform: translateX(-2.5%) rotateY(180deg);
+}
+/* Other States */
+.l:focus {
+	/* Usually an anti-A11Y practice but set to remove an annoyance just for this demo */
+	outline: 0;
+}
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.css);
+
+// Mixins
+@mixin size($point) {
+	@if $point == small {
+		@media screen and (min-width: 500px) {
+			@content;
+		}
+	}
+	@if $point == large {
+		@media screen and (min-width: 880px) {
+			@content;
+		}
+	}
+}
+
+// Resets
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	overflow-x: hidden;
+	font-family: 'Lato', sans-serif;
+	padding-top: 80px;
+	color: #fff;
+	background: #333;
+}
+
+// Globals
+.row {
+	display: flex;
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+}
+
+.center {
+	justify-content: center;
+}
+
+.column-center {
+	align-items: center;
+}
+
+.split {
+	justify-content: space-between;
+}
+
+.split-center {
+	justify-content: space-around;
+}
+
+// Animations
+@keyframes fadeOne {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeTwo {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+
+
+.circle {
+    margin-left: 20px;
+    position:relative;
+    display:inline-block;
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    overflow:hidden;
+    animation-name: spin;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+    transform:rotate(0deg);
+  }
+  to {
+    transform:rotate(360deg);
+  }
+}
+
+.circle:before, .circle:after, .circle > div:before, .circle > div:after {
+    content:'';
+    position:absolute;
+    z-index:-1;
+}
+.circle:before {
+    bottom:50%;
+    left:50%;
+    margin-left:5px;
+    margin-bottom:4px;
+    border-top: 100px solid transparent;
+    border-right:50px solid grey;
+}
+.circle:after{
+    top:50%;
+    left:50%;
+    margin-left:5px;
+    margin-top:4px;
+    border-right:50px solid gold;
+    border-bottom:100px solid transparent;
+}
+.sector1:before {
+    bottom:50%;
+    right:50%;
+    margin-right:5px;
+    margin-bottom:4px;
+    border-top: 100px solid transparent;
+    border-left:50px solid black;
+}
+.sector1:after {
+    bottom:50%;
+    margin-bottom:10px;
+    border-top: 100px solid purple;
+    border-right:50px solid transparent;
+    border-left:50px solid transparent;
+}
+.sector2:before {
+    top:50%;
+    right:50%;
+    margin-right:5px;
+    margin-top:4px;
+    border-bottom:100px solid transparent;
+    border-left:50px solid green;
+}
+.sector2:after {
+    top:50%;
+    margin-top:10px;
+    border-right:50px solid transparent;
+    border-bottom:100px solid brown;
+    border-left:50px solid transparent;
+}
+.round-middle{
+    position:absolute;
+    top:100px; left:100px;
+    width:50px; height:50px;
+    border:4px solid #fff;
+    border-radius:50%;
+    background:blue;
+}
+
+.btn_wrap {
+  margin-top: 5px;
+  margin-left: 20px;   
+} 
+
+.btn {
+  display: inline-block;
+  margin-right: 15px;
+  text-align: center;
+  width: 25px;
+  height: 25px;
+  background: black;
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 15px;
+  text-decoration: none;
+}
+.current {
+    background: red;
+} 
