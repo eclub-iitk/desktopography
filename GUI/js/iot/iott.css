@@ -14,7 +14,7 @@
     position: absolute;
     width: 250px;
     height: 320px;
-    background: none;
+    background:transparent;
     
     transform: translate(-50%, -50%);
 }
@@ -225,14 +225,14 @@
     
 }
 .fD{background-color: darkmagenta;
-    background-image: url(wall-calendar.svg);
+    background-image: url(alarm-clock.svg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center
     
 }
-.bD{background-color: darkturquoise;
-    background-image: url(alarm-clock.svg);
+.bD{background-color: rgba(0,0,0,0.7);
+    background-image: url(wall-calendar.svg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center
@@ -550,3 +550,16 @@ body {
 .current {
     background: red;
 } 
+
+.clock {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #17D4FE;
+    font-size: 60px;
+    font-family: Orbitron;
+    letter-spacing: 7px;
+
+
+}

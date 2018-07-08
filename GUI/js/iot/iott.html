@@ -9,9 +9,11 @@
     <link rel="stylesheet" type="text/css" media="screen" href="iott.css" />
     <script src="iott.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
 </head>
 
-<body style="background-color:white;">
+<body onload="showTime();" >
+<div style="background-color:blue;position:absolute;width:1200px;height:670px;top:0px;">
     <div class="main-container home">
         <div class="thecard chome">
             <div class="thefront fH">
@@ -100,7 +102,7 @@
                     <p>DATE & TIME</p>
                 </div>
                 <div class="theback bD">
-                    
+                        <div id="MyClockDisplay" class="clock"></div>
                     
                 </div>
             </div>
@@ -116,7 +118,9 @@
     
     <h2>Local Weather</h2>
     <h1 id="location">Your Location</h1>
-    <span id="temp"><h3>70</h3></span>
+    <span id="temp"><h3>7<div id="clock">
+            
+        </div>0</h3></span>
     <div class="row center column-center Weather__main-toggle"> <!-- Begin Unit Switch -->
       <span><h3>F</h3></span>
       <button id="unit-switch"><span id="unit-toggle"></span></button>
