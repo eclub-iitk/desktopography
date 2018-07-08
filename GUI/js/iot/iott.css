@@ -183,13 +183,13 @@
     background-position: center;
 }
 .fM{
-    background-color: darkgrey;
-    background-image: url(music.svg);
+    background-color: transparent;
+    background-image: url(music.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center
 }
-.bM{background-color: burlywood;
+.bM{background-color: white;
     background-image: url(headphones.svg);
     background-size: contain;
     background-repeat: no-repeat;
@@ -210,7 +210,7 @@
     background-position: center
     
 }
-.fC{background-color: deeppink;
+.fC{background-color: #20B2AA;
     background-image: url(coolerf.svg);
     background-size: contain;
     background-repeat: no-repeat;
@@ -531,7 +531,7 @@ body {
 .btn_wrap {
   margin-top: 5px;
   margin-left: 20px;   
-} 
+} 66FFCC
 
 .btn {
   display: inline-block;

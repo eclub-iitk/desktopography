@@ -1,9 +1,19 @@
 <html>
-<head>
+<head> <meta charset="utf-8" />
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="cal.css" />
+
+
+
 </head>
 <body>
+    <div style="background-color:blue;position:absolute;width:1200px;height:670px;top:0px;">
 <center>
 <script language="javascript" type="text/javascript">
+
+
 var day_of_week = new Array('Sun','Mon','Tue','Wed','Thu','Fri','Sat');
 var month_of_year = new Array('January','February','March','April','May','June','July','August','September','October','November','December');
 
@@ -43,6 +53,9 @@ cal += '<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=2>' + TR_start;
 cal += '<TD COLSPAN="' + DAYS_OF_WEEK + '" BGCOLOR="#EFEFEF"><CENTER><B>';
 cal += month_of_year[month]  + '   ' + year + '</B>' + TD_end + TR_end;
 cal += TR_start;
+
+
+
 
 //   DO NOT EDIT BELOW THIS POINT  //
 
@@ -111,6 +124,6 @@ document.write(cal);
 //  End -->
 </script>
 </center>
-
+</div>
 </body>
 </html>
