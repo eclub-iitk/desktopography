@@ -125,3 +125,25 @@ $(document).ready(function getWeather() {
     }); //end getJSON
   }; //end getWeatherData
 }); //end ready
+
+
+
+function weatclose() {
+    document.getElementById("myDIV").style.display="block";
+    document.getElementById("main-container").style.display="none";
+}
+
+function weatr1() {
+   	 document.getElementById("main-container").classList.toggle("clkrotate");
+	
+	}
+
+function weatr2() {
+   	 document.getElementById("main-container").classList.toggle("calreverse");
+	
+	}
+
+function weatr3() {
+   	 document.getElementById("main-container").classList.toggle("aclkrotate");
+	
+	}

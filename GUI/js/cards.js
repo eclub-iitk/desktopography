@@ -95,11 +95,10 @@ function doubleclick() {
 document.addEventListener("dblclick", doubleclick);
 
 function ws1() {
-    var clientHeight = document.getElementById('myDIV').clientHeight;
-    var clientWidth = document.getElementById('myDIV').clientWidth;
-    
-    if(clientHeight>200){myFunction();}
-    alert(clientHeight +" "+clientWidth);
+    document.getElementById("myDIV").style.display="none";
+    document.getElementById("iot").style.top=document.getElementById("myDIV").style.top;
+    document.getElementById("iot").style.left=document.getElementById("myDIV").style.left;
+    document.getElementById("iot").style.display="block";
 }
 
 
@@ -124,6 +123,20 @@ function ws4() {
     document.getElementById("mainmap").style.display="block";
 }
 
+
+function ws5() {
+    document.getElementById("myDIV").style.display="none";
+    document.getElementById("main-container").style.top=document.getElementById("myDIV").style.top;
+    document.getElementById("main-container").style.left=document.getElementById("myDIV").style.left;
+    document.getElementById("main-container").style.display="block";
+}
+
+function ws6() {
+    document.getElementById("myDIV").style.display="none";
+    document.getElementById("playlist").style.top=document.getElementById("myDIV").style.top;
+    document.getElementById("playlist").style.left=document.getElementById("myDIV").style.left;
+    document.getElementById("playlist").style.display="block";
+}
 
 
 function view() {
@@ -169,16 +182,25 @@ function cancel(){
 }
 
 
+function playclose() {
+    document.getElementById("myDIV").style.display="block";
+    document.getElementById("playlist").style.display="none";
+}
 
+function playr1() {
+   	 document.getElementById("playlist").classList.toggle("clkrotate");
+	
+	}
 
+function playr2() {
+   	 document.getElementById("playlist").classList.toggle("calreverse");
+	
+	}
 
-
-
-
-
-
-
-
+function playr3() {
+   	 document.getElementById("playlist").classList.toggle("aclkrotate");
+	
+	}
 
 
 
