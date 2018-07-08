@@ -10,6 +10,7 @@ import cmath
 from cythontry import coordinates_gui_to_kinect
 from cythontry import coordinates_kinect_to_gui
 import time
+from operator import itemgetter
 #from flask import Flask, Response
 #from gevent.pywsgi import WSGIServer
 #from gevent.queue import Queue
@@ -65,7 +66,7 @@ def update():
    
     depthnew = depth * np.logical_and(depth >= current_depth - threshold,depth <= current_depth + threshold)
     depthnew = depthnew.astype(np.uint8)
-    #cv.imshow("Depth",depthnew)
+    cv.imshow("Depth",depthnew)
     h = depth.shape[0]
     w = depth.shape[1]
     array,_ = freenect.sync_get_video()
@@ -76,14 +77,15 @@ def update():
     image3=np.zeros(shape=(h,w,3),dtype = float)
     img1,new_depth = align(array,depth,image1,depth2)   
     image2 = np.zeros(shape=(h,w,3),dtype = float)
-    img2 = segment(img1,new_depth, image2, 1.0,1.8)
+    img2 = segment(img1,new_depth, image2, 0.5,1.8)
     img2 = np.asarray(img2)
     img2 = img2.astype(np.uint8)
     #cv.imshow("segmented image",img2)    
     new_depth = np.asarray(new_depth)
     raw_aligned_depth = new_depth.copy()
+    raw_aligned_depth = np.float32(raw_aligned_depth)
     new_depth = new_depth.astype(np.uint8)
-    #cv.imshow("aligned depth",new_depth)    
+    cv.imshow("aligned depth",new_depth)    
     hsv = cv.cvtColor(img2, cv.COLOR_BGR2HSV)
     mask = cv.inRange(hsv, (0,48,0), (50,255,255))          
     test_kernel = np.ones((5,5),np.uint8)    
@@ -103,91 +105,149 @@ def update():
     skinMask2 = cv.drawContours(new_color,[cnts[maxIter]],0,(0,0,255),thickness = 3) 
     coloured[:] = 0
     skinMask3 = cv.drawContours(coloured,[cnts[maxIter]],0,(255,255,255),thickness = cv.FILLED) 
-    #skinMask3 = cv.medianBlur(skinMask3,5)
+    skinMask3 = cv.medianBlur(skinMask3,5)
     skinMask3 = cv.cvtColor(skinMask3,cv.COLOR_BGR2GRAY)
+    M = cv.moments(cnts[maxIter])
+    handX = int(M["m10"] / M["m00"])
+    handY = int(M["m01"] / M["m00"])
     #x,y,w,h = cv.boundingRect(cnts[maxIter])
     #skinMask2 = cv.rectangle(skinMask2,(x,y),(x+w,y+h),(0,255,0),2)   
-    kernel = cv.getStructuringElement(cv.MORPH_ELLIPSE, (8, 8))
+    kernel = cv.getStructuringElement(cv.MORPH_ELLIPSE, (7,7))
     kernel2 = cv.getStructuringElement(cv.MORPH_ELLIPSE, (3, 3))
-    erode_skin = cv.erode(skinMask3,kernel,iterations  = 4)
-    erode_skin = cv.dilate(erode_skin,kernel,iterations = 4)
+    erode_skin = cv.erode(skinMask3,kernel,iterations  = 3)
+    erode_skin = cv.dilate(erode_skin,kernel,iterations = 3)
+    
     cv.imshow("erode",erode_skin)
     new_skin = skinMask3 - erode_skin
-    new_skin = cv.erode(new_skin,kernel2,iterations  = 1)    
-    new_skin = cv.medianBlur(new_skin,7)
+    #new_skin = cv.medianBlur(new_skin,5)
+    #new_skin = cv.dilate(new_skin,kernel2,iterations  = 2)        
+    #new_skin = cv.erode(new_skin,kernel2,iterations  = 1)        
     cv.imshow("new",new_skin)
     _,cnts2,_ = cv.findContours(new_skin,cv.RETR_TREE,cv.CHAIN_APPROX_SIMPLE)
     erode_2 = cv.cvtColor(new_skin,cv.COLOR_GRAY2BGR)
-    maxArea = 0
-    maxIter = 0
+    #maxArea = 0
+    #maxIter = 0
     qu = Q.PriorityQueue()
     for i in range(len(cnts2)):
         qu.put((-1*cv.contourArea(cnts2[i]),i))
     skin_2 = erode_2.copy()
     how_many = len(cnts2)
-    qu.get()
+    mid_ptscx = []
+    mid_ptscy = []
+    fingertips = []
+    #cv.imshow("thin strips",erode_2)
     if(len(cnts2) > 5):
+        
         how_many = 5
     for i in range(how_many):
         try:
             cnt = cnts2[qu.get()[1]]
-            skin_2 = cv.drawContours(erode_2,[cnt],-1,(255,0,0),3)
-            #(x,y),(MA,ma),angle = cv.fitEllipse(cnt)
-            #ellipse = cv.fitEllipse(cnt)
+            skin_2 = cv.drawContours(erode_2,[cnt],-1,(255,0,0),thickness = 1)
+            (x,y),(MA,ma),angle = cv.minAreaRect(cnt)
+            angle = ((np.pi)/180.0)*angle
+            angle = np.pi/2 + angle
+            x1 = x+(MA)*np.cos(angle)
+            y1 = y+(MA)*np.sin(angle)
+
+            x2 = x-(MA)*np.cos(angle)
+            y2 = y-(MA)*np.sin(angle)
+            #cv.line(img2,(int(x1),int(y1)),(int(x2),int(y2)),(0,0,255),3)
+            #cv.line(skin_2,(int(x1),int(y1)),(int(x2),int(y2)),(0,0,255),3)            
+            ellipse = cv.fitEllipse(cnt)
+            #img2 = cv.ellipse(img2,ellipse,(0,255,0),2)
+            rect = cv.minAreaRect(cnt)
+            #print(rect)
+            box = cv.boxPoints(rect)
+            box = np.int0(box)
+            endpoint1 = ((box[0][0]+box[1][0])/2,(box[0][1]+box[1][1])/2)
+            endpoint2 = ((box[2][0]+box[3][0])/2,(box[2][1]+box[3][1])/2)
+            endpoint3 = ((box[1][0]+box[2][0])/2,(box[1][1]+box[2][1])/2)
+            endpoint4 = ((box[0][0]+box[3][0])/2,(box[0][1]+box[3][1])/2)
+            dist1 = (endpoint1[0] - endpoint2[0])**2 + (endpoint1[1] - endpoint2[1])**2
+            dist2 = (endpoint3[0] - endpoint4[0])**2 + (endpoint3[1] - endpoint4[1])**2
+            if(dist2 > dist1):
+                endpoint1 = endpoint3
+                endpoint2 = endpoint4
+            dist3 = (endpoint1[0] - handX)**2 + (endpoint1[1] - handY)**2
+            dist4 = (endpoint2[0] - handX)**2 + (endpoint2[1] - handY)**2
+
+            if(dist3 > dist4):
+                endpoint = endpoint1
+            else:
+                endpoint = endpoint2
+            fingertips.append(endpoint)       
+            cv.circle(skin_2,endpoint,1,(255,0,0),5)
+            #cv.drawContours(skin_2,[box],0,(0,0,255),2)
             M = cv.moments(cnt)
             cX = int(M["m10"] / M["m00"])
             cY = int(M["m01"] / M["m00"])
+            mid_ptscx.append(cX)
+            mid_ptscy.append(cY)
             #skin_2 = cv.circle(skin_2,(int(x),int(y)),3,(0,0,255),3)
             skin_2 = cv.circle(skin_2,(int(cX),int(cY)),1,(0,255,0),5)    
             img2 = cv.circle(img2,(int(cX),int(cY)),1,(0,255,0),5)
+            skin_2 = cv.circle(skin_2,(int(handX),int(handY)),1,(0,255,255),5)    
             #skin_2 = cv.ellipse(skin_2,ellipse,(0,255,0),2)
 
             #print(x,y,MA,ma,angle)"""
-        except:
+        except Exception as e:
+            print(e)
             a = 1+2        
-    cv.imshow("contour",skinMask2)
-    cv.imshow("skin_2",skin_2)
-    cv.imshow("img2",img2)
+    
+    sumx = 0
+    sumy = 0
+    for finger in fingertips:
+        
+        cX = finger[0]
+        sumx += cX
+        cY = finger[1]
+        sumy += cY
 
-        #cv.imshow("eroded",skinMask - erode_skin)
-    hsv[:,:,2] = 0
-    '''mask5 = cv.drawContours(mask5,cnts,-1,(255,0,255),3)
-    maxArea = 0.0
-    maxiter = 0
-    for c in range(0,len(cnts)):
-        if(maxArea < cv.contourArea(cnts[c])):
-            maxArea = cv.contourArea(cnts[c])
-            maxiter = c
-    hull = cv.convexHull(cnts[maxiter])
-    hull2 = cv.convexHull(cnts[maxiter],returnPoints = False)
-    defects = cv.convexityDefects(cnts[maxiter],hull2)
-    cnt = cnts[maxiter]
-    fingertips = []    
-    for i in range(defects.shape[0]):
-        s,e,f,d = defects[i,0]
-        start = tuple(cnt[s][0])
-        end = tuple(cnt[e][0])
-        far = tuple(cnt[f][0])
-        temp = []
-        if(start[0] > 100 and start[0] < 540 and start[1] > 100 and start[1] < 380):
-            if(len(fingertips) > 0):
-                flag = 0
-                for x in fingertips:
-                    dist = ((start[0] - x[0])**2 + (start[1] - x[1])**2)**0.5
-                    if(dist < 10):
-                        flag = 1
-                        break
-                if(flag == 0):
-                    fingertips.append(start)
-                    mask5 = cv.circle(img2,start,5,[255,0,255],-1)
-                   
+    avgx = sumx/len(fingertips)
+    avgy = sumy/len(fingertips)
+    finger_names = ["little","ring","middle","index","thumb"]
+    if(len(fingertips) == 5):
+        if(np.absolute(handX-avgx) > np.absolute(handY-avgy)):
+            flag = "hor"
+            fingertips = sorted(fingertips, key =  itemgetter(1))
+            if(handX > avgx):
+                flag = "hor1"
+                little = fingertips[0]
+                ring = fingertips[1]
+                middle = fingertips[2]
+                index = fingertips[3] 
+                thumb = fingertips[4]
             else:
-                fingertips.append(start)
-                mask5 = cv.circle(img2,start,5,[255,0,0],-1)
+                flag = "hor2"
+                little = fingertips[4]
+                ring = fingertips[3]
+                middle = fingertips[2]
+                index = fingertips[1]            
+                thumb = fingertips[0]
+                finger_names.reverse()
 
-    cv.imshow("mask5",mask5)
+        else:
+            flag = "ver"
+            fingertips = sorted(fingertips, key =  itemgetter(0))
+            if(avgy > handY):
+                flag = "ver1"
+                little = fingertips[0]
+                ring = fingertips[1]
+                middle = fingertips[2]
+                index = fingertips[3]            
+                thumb = fingertips[4]
+            else:
+                flag = "ver2"
+                little = fingertips[4]
+                ring = fingertips[3]
+                middle = fingertips[2]
+                index = fingertips[1]          
+                thumb = fingertips[0]
+                finger_names.reverse()  
+        img2 = cv.putText(img2, flag, (int(handX) , int(handY)),cv.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)                
+        img2 = cv.putText(img2, "index", (index[0] , index[1]),cv.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)                
+    
     finger_distance = []
-    flag = 0
     for finger in fingertips:
         coord = raw_aligned_depth[finger[1]][finger[0]]
         distance=1.0/(-0.00307 * coord + 3.33)
@@ -208,24 +268,17 @@ def update():
                     max_x = finger[1] + i
                     max_y = finger[0] + j    
         finger_distance.append(raw_aligned_depth[max_x][max_y]-raw_aligned_depth[min_x][min_y])
-        cX = finger[0]
-        cY = finger[1]
-        z1 = distance
-        x1 =  z1*(cX-c1u)/f1u
-        y1 =  z1*(cY-c1v)/f1v   
-        if(flag == 0):
-            flag = 1
-            mask5 = cv.putText(mask5, str(cX) + "," + str(cY), (cX - 20, cY - 20),cv.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
-    
-    c1,c2 = coordinates_gui_to_kinect(500,500)
-    print(c1,c2)
-    mask5 = cv.circle(mask5 ,(c1,c2) ,5 ,[0,0,0],-1)
-    j1 = 0
-    for i in range(0,len(finger_distance)):
-        if(finger_distance[i] > 6 ):
-            j1+=1
-    print(str(j1)+ "/" + str(len(finger_distance)))   '''     
-    #cv.imshow("contour",mask5)
+    count = 0
+    touching = []
+    for dist,name in zip(finger_distance,finger_names):
+        if(dist < 10):
+            count = count + 1
+            touching.append(name)
+    #print(str(count)+ "/" + str(len(finger_distance)))
+    print(touching)
+    cv.imshow("contour",skinMask2)
+    cv.imshow("skin_2",skin_2)
+    cv.imshow("img2",img2)
     cv.setMouseCallback("Depth",coords_mouse_disp,depth)
     
     
