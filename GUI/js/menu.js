@@ -3,6 +3,7 @@ function myFunction2() {
 	 //document.getElementById("calculator").classList.toggle("show");
 	//document.getElementById("myDIV").style.display="block";
         document.getElementById("calculator").style.display="none";
+	//document.getElementById("myDIV").style.display="block";
 	}
 function rotat() {
    	 document.getElementById("calculator").classList.toggle("clkrotate");

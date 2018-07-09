@@ -8,6 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="cards.css" />
     <script src="cards.js"></script>
+
+
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="weatherapp/style.css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
 </head>
 
 <body bgcolor="#303030">
@@ -37,7 +47,7 @@
 	<div class="main-container c1">
             <div class="thecard card1">
                 <div class="thefront f1">
-                    <img src="icons/iot.png" width="100%" height="100%" >
+                    <img src="icons/iot.png" width="100%" height="90%" >
                 </div>
                 <div class="theback b1"  onclick="ws1()">
                    
@@ -49,7 +59,7 @@
         <div class="main-container c2">
             <div class="thecard card1">
                 <div class="thefront f1">
-                     <img src="icons/calc.png" width="100%" height="100%" >
+                     <img src="icons/calc.png" width="100%" height="90%" >
                 </div>
                 <div class="theback b1"onclick="ws2();">
                    
@@ -86,7 +96,7 @@
                 <div class="thefront f1">
                      <img src="icons/weat.png" width="100%" height="90%" >
                 </div>
-                <div class="theback b1">
+                <div class="theback b1" onclick="ws5();">
                    
 
                 </div>
@@ -97,9 +107,9 @@
         <div class="main-container c6">
             <div class="thecard card2">
                 <div class="thefront f2">
-                    <img src="icons/youtube.png" width="100%" height="100%" >
+                    <img src="icons/youtube.png" width="100%" height="90%" >
                 </div>
-                <div class="theback b2" onclick="location.href='https://www.youtube.com/'">
+                <div class="theback b1" onclick="ws6();">
                  
 
                 </div>
@@ -107,6 +117,14 @@
         </div>
 
     </div>
+
+
+
+
+
+<div id="iot" style="background-color:pink;position:absolute;">
+    
+</div> 
 
 
 
@@ -155,7 +173,7 @@
 </div> 
 
 
-<div id="calendar" style="border-style:solid;width:220;position:absolute;left:400px;top:400px;display:none;background-color:cyan;">
+<div id="calendar" style="border-style:solid;width:220;position:absolute;left:400px;top:400px;display:none;background-color:cyan;resize:both;">
 <div class = "calendar1" id="calendarheader" style="background-color:cyan;">
 <button onclick="Rotat1();">Rotat1</button>
 <button onclick="Rotat2();">Rotat2</button>
@@ -271,7 +289,7 @@ document.write(cal);
 //  End -->
 
 function calenclose() {
-    document.getElementById("myDIV").style.display="block";
+    //document.getElementById("myDIV").style.display="block";
     document.getElementById("calendar").style.display="none";
 }
 
@@ -305,7 +323,84 @@ function Rotat3() {
 </div>
 
 
+
+
+<div id="main-container" class="container" style="display:none;position:absolute;">
+      <button onclick="weatr1();" id="wkeys" >rotate</button>
+      <button onclick="weat2();" id="wkeys">reverse</button>
+      <button onclick="weat3();" id="wkeys">arotat</button>
+      <button onclick="weatclose();" id="wkeys">close</button>
+      <h1 id="city" class="text-center">CITY</h1>
+      <p id="state" class="text-center">STATE</p>
+    <div id="current-weather" class="container">
+      <div class="row">
+        <div class="col-xs-5 valign" align="center">
+          <br>
+          <canvas id="weather-icon" width="75" height="75"></canvas>
+        </div><!--
+        --><div class="col-xs-5 valign" align="right">
+          <h1 id="temp">°</h1>
+        </div><!--
+        --><div class="col-xs-2 valign" align="center">
+        <br>
+          <a id="fbutton" class="button" title="Change degrees to fahrenheit" target="_blank"><p>F</p></a>
+          <a id="cbutton" class="button" title="Change degrees to celsius" target="_blank"><p>C</p></a>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-xs-5">
+          <h1 id="weather-description">Summary</h1>
+        </div>
+        <div class="col-xs-7">
+          <h1 id="feels-like">Feels Like</h1>
+        </div>
+      </div>
+    </div>
+    <hr class="style1">
+    <div id="forecast" class="container">
+      <div class="row">
+        <div class="col-xs-4 text-center">
+          <p id="day2">Day 2</p>
+          <canvas id="weather-icon-day2" width="45" height="45"></canvas>
+          <p id="day2-high-low">Day 2 high/low</p>
+          <i id="day2-raindrop" class="wi wi-raindrop"></i>
+          <p id="day2-precip">Day 2 precip</p>
+        </div>
+        <div class="col-xs-4 text-center">
+          <p id="day3">Day 3</p>
+          <canvas id="weather-icon-day3" width="45" height="45"></canvas>
+          <p id="day3-high-low">Day 3 high/low</p>
+          <i id="day3-raindrop" class="wi wi-raindrop"></i>
+          <p id="day3-precip">Day 3 precip</p>
+        </div>
+        <div class="col-xs-4 text-center">
+          <p id="day4">Day 4</p>
+          <canvas id="weather-icon-day4" width="45" height="45"></canvas>
+          <p id="day4-high-low">Day 4 high/low</p>
+          <i id="day4-raindrop" class="wi wi-raindrop"></i>
+          <p id="day4-precip">Day 4 precip</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div id="playlist" style="display:none;position:absolute;">
+
+	<div class = "map1" id="mapheader" style="background-color:cyan;">
+	<button onclick="playr1();">R1</button>
+	<button onclick="playr2();">R2</button>
+	<button onclick="playr3();">R3</button>
+	<button onclick="playclose();">close</button><br>
+	</div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL39HkZXO7CwkuAFKNhmlUKFZtrHGrqiZH" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div>  
+
+
 </div>
+
+<script src="map.js"></script>
+<script src="playlist.js"></script>
 
 <script src="menu.js">
 
@@ -343,7 +438,7 @@ function placeMarker(map, location) {
 }
  
 function mapclose() {
-    document.getElementById("myDIV").style.display="block";
+    //document.getElementById("myDIV").style.display="block";
     document.getElementById("mainmap").style.display="none";
 }
 
@@ -366,6 +461,52 @@ function R3() {
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4qG7WIi9ajrdWEJRZVYZLeV3YcrjEdg8&callback=myMap"></script>
 
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
+  <script src="weatherapp/script.js"></script>
+
+
+<script>
+
+dragElement(document.getElementById("calendar"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById("calendar").onmousedown = dragMouseDown;
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
 
 
 </body>

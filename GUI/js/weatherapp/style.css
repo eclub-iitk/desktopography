@@ -1,37 +1,12 @@
-html {
-  height: 100%;
-  box-sizing: border-box;
-}
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-body {
-  position: relative;
-  margin: 0;
-  min-height: 100%;
-  font-family: Poppins;
-  color: #424B54;
-  background: #A3BAC3;
-  padding-bottom: 11rem;
-}
+
 #main-container {
-  background-color: #F2F3F4;
+
   width: 90%;
   max-width: 400px;
   margin-top: 20px;
   margin-bottom: 10px;
   border: 3px solid #A9DD9B;
 }
-#wkeys
-{
-  width:65px;
-  height: 35px;
-  margin-left: 15px;
-  background: #A3BAC3;
-}
-
 #city {
   font-size: 55px;
 }
