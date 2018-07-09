@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="target_div">target div</div>
+<button onclick="simulateMouseover();">click</button>
+
+<script>
+function simulateMouseover() {
+  var event = new MouseEvent('mouseover', {
+    'view': window,
+    'bubbles': true,
+    'cancelable': true
+  });
+  var myTarget = document.getElementById('target_div'); 
+  myTarget.dispatchEvent(event);
+  /*var canceled = !myTarget.dispatchEvent(event);
+  if (canceled) {
+    // A handler called preventDefault.
+    alert("canceled");
+  } else {
+    // None of the handlers called preventDefault.
+    alert("not canceled");
+  }*/
+}
+
+function mouseOverBehaviour() {
+    myElement = document.getElementById("target_div");
+     // attach mouseover event listener to element
+    myElement.addEventListener("mouseover", function(event) {
+        // change the color of the font
+        event.target.style.color = "red";
+    });  
+    // call the simulation
+    //setTimeout(simulateMouseover,3000);
+}
+
+mouseOverBehaviour();
+
+</script>
+
+</body>
+</html>
+
