@@ -1,0 +1,89 @@
+.turuncubaslik-bold {
+	color:rgb(7, 1, 1);
+font-size:14px;
+ border-bottom: 1px dotted #000;
+    text-decoration: none;	
+	}
+/******keyboard*******/
+
+ul.keyboard {
+  list-style-type: none;
+  font-family: verdana;
+  background-color: rgb(80, 182, 55);
+  border-radius: 5px;
+  padding: 0;
+  width: 100%;
+  height: 50%;
+}
+
+.keyboard li {
+  cursor: pointer;
+  display: inline;
+  float: left;
+  height: 18%;
+ /** margin: auto; **/
+  line-height: 50px;
+  padding: 0;
+  margin: 0.3% 0.6% 0.6% 0.2%;
+  background-color: rgb(14, 247, 6);
+  color: black;
+  vertical-align: middle;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 1vw;
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.char {
+    width: 5.75%;
+    -webkit-transition: background-color 100ms;
+}
+
+.tab {
+  width: 20%;
+}
+
+.at {
+  width: 7.2%;
+}
+
+.last {
+  margin-right: 0%;
+}
+
+.backspace {
+  width: 14%;
+}
+
+.capslock {
+  width: 12%
+}
+
+.capslock.on {
+	background-color: #CA4200;
+}
+
+.return {
+  width: 14%;
+}
+
+.shift {
+  width: 7.2%;
+}
+
+.last {
+  margin-right: 0;
+}
+
+.space {
+  width: 99%;
+}
+
+.keyboard .touch {
+	background-color: rgb(238, 11, 11);
+}

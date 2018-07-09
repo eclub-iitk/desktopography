@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Login page with virtual keyboard</title>
+
+
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+
+      <link rel="stylesheet" href="keycss/style.css">
+
+
+</head>
+
+<body>
+
+  <!------------boşluk-->
+<div class="container">
+ <div class="row">
+   <div class=" col-sm-2 col-md-2 col-lg-1" style="padding:35px;">
+    </div>
+ </div>
+</div>
+<!------------boşluk bitti-->
+
+<div class="container">
+ <div class="row" style="background-color: rgb(29, 46, 44);">
+    <div class="col-sm-5 col-md-5 col-lg-5 form-group"><form >
+
+          <label for="musterino" style="color: beige;">Type Here</label>
+          <input name="kullaniciadi" type="text" autofocus required class="form-control" id="keyboard" tabindex="1">
+</div>
+<!-- sanal klavye başladı -->
+<div class="col-sm-12 col-md-12 col-lg-12 hidden-xs">
+                 <div id="virtualkeyboard" class="panel-collapse collapse" style="display: block">
+        <div class="panel-body">
+<ul class="keyboard">
+  <li class="char">^</li>
+  <li class="char">1</li>
+  <li class="char">2</li>    
+  <li class="char">3</li>
+  <li class="char">4</li>
+  <li class="char">5</li>
+  <li class="char">6</li>
+  <li class="char">7</li>
+  <li class="char">8</li>
+  <li class="char">9</li>
+  <li class="char">0</li>
+  <li class="char">-</li>
+  <li class="char">_</li>
+  <li class="backspace last"><span class="glyphicon glyphicon-arrow-left"></span></li>
+  <li class="tab"><span class="glyphicon glyphicon-transfer"></span></li>
+  <li class="char">q</li>
+  <li class="char">w</li>
+  <li class="char">e</li>
+  <li class="char">r</li>
+  <li class="char">t</li>
+  <li class="char">y</li>
+  <li class="char">u</li>
+  <li class="char">ı</li>
+  <li class="char">o</li>
+  <li class="char">p</li>
+  <li class="char">ğ</li>
+  <li class="char">ü</li>
+
+  <li class="capslock">c.lock</li>
+  <li class="char">a</li>
+  <li class="char">s</li>
+  <li class="char">d</li>
+  <li class="char">f</li>
+  <li class="char">g</li>
+  <li class="char">h</li>
+  <li class="char">j</li>
+  <li class="char">k</li>
+  <li class="char">l</li>
+  <li class="char">ş</li>
+  <li class="char">i</li>
+
+  <li class="return last">return</li>
+  <li class="char at">@</li>
+  <li class="char">`</li>
+  <li class="char">z</li>
+  <li class="char">x</li>
+  <li class="char">c</li>
+  <li class="char">v</li>
+  <li class="char">b</li>
+  <li class="char">n</li>
+  <li class="char">m</li>
+  <li class="char">ö</li>
+  <li class="char">ç</li>
+  <li class="char">?</li>
+  <li class="char">_</li>
+  <li class="char">=</li>
+  <li class="char">|</li>
+  <li class="space"><span class="glyphicon glyphicon-resize-horizontal"></span></li>
+</ul>
+    </div>
+    </div>
+</div>
+<!-- sanal klavye bitti -->
+</div>
+</div>
+<!----------login bitti-->
+
+<!------------boşluk-->
+<div class="container">
+ <div class="row">
+   <div class=" col-sm-2 col-md-2 col-lg-1" style="padding:50px;">
+    </div>
+ </div>
+</div>
+<!------------boşluk bitti-->
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<script  src="keyjs/index.js"></script>
+
+
+
+
+</body>
+
+</html>
