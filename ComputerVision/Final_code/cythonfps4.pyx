@@ -3,7 +3,7 @@ import cython
 import numpy as np
 
 @cython.boundscheck(False)
-cpdef double[:, :,:] threshold_fast(int T, float[:,:] image, double[:, :,:] image1,int thr,int th):
+cpdef double[:, :,:] threshold_fast(int T, float[:, :] image, double[:, :,:] image1,int thr,int th):
     # set the variable extension types
     cdef int x, y, w, h, z,t,c, c1,i,x1
 
@@ -143,7 +143,7 @@ cpdef double[:, :,:] threshold_call(int T, float[:, :,:] image,float[:,:,:] img,
                     
     # return the thresholded image
     return image1  
-cpdef  align(unsigned char[:, :,:] image1, unsigned short[:,:] depth,  double[:,:,:] final,double[:,:] new_depth):
+cpdef  align(unsigned char[:, :,:] image1, unsigned short[:, :] depth,  double[:,:,:] final,double[:,:] new_depth):
     # set the variable extension types
     cdef double  w, h, z,u1 ,v1 ,u2 ,v2
     cdef int f1,f2,j,i,g1,g2
@@ -227,8 +227,8 @@ cpdef coordinates_gui_to_kinect( int x, int y):
     cdef double p1,q1
     p1 = x
     q1 = y
-    p = int(470-((p1*350)/875))
-    q = int(300-((q1*215)/520))
+    p = int((((600-p1)/300)*130)+305)
+    q = int((((300-q1)/300)*125)+215)
     return p,q   
 
 
@@ -236,7 +236,15 @@ cpdef coordinates_gui_to_kinect( int x, int y):
 cpdef coordinates_kinect_to_gui( int x, int y):
     cdef int p,q
     cdef double p1,q1
-    p1 = 480 - x
-    q1 = 300 - y
-    p = int((p1/360)*875)
-    q = int((q1/215)*520)
+    p1 = x - 305
+    q1 = y - 215
+    p  = int(600-((p1/130)*300))
+    q  = int(300-((q1/125)*300))
+     
+    return p,q
+
+            
+        
+    
+    
+    
