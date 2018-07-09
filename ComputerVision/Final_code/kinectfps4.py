@@ -1,4 +1,4 @@
-# python (flask) side:
+
 
 import freenect
 import cv2 as cv
@@ -10,6 +10,7 @@ import cmath
 from cythontry import coordinates_gui_to_kinect
 from cythontry import coordinates_kinect_to_gui
 import time
+import socket
 from operator import itemgetter
 #from flask import Flask, Response
 #from gevent.pywsgi import WSGIServer
@@ -18,7 +19,10 @@ from operator import itemgetter
 #import json
 #import random
 import Queue as Q
-
+UDP_IP = "127.0.0.1"
+UDP_PORT = 5005
+MESSAGE = "Hello, World!"
+sock = socket.socket(socket.AF_INET,socket.SOCK_DGRAM) # UDP
 
 threshold = 100
 current_depth = 600
@@ -75,9 +79,9 @@ def update():
     image1=np.zeros(shape=(h,w,3),dtype = float) 
     depth2 = np.zeros((480,640))  
     image3=np.zeros(shape=(h,w,3),dtype = float)
-    img1,new_depth = align(array,depth,image1,depth2)   
+    img1, new_depth = align(array, depth, image1, depth2)   
     image2 = np.zeros(shape=(h,w,3),dtype = float)
-    img2 = segment(img1,new_depth, image2, 0.5,1.8)
+    img2 = segment(img1 ,new_depth, image2, 0.5,1.8)
     img2 = np.asarray(img2)
     img2 = img2.astype(np.uint8)
     #cv.imshow("segmented image",img2)    
@@ -269,13 +273,20 @@ def update():
                     max_y = finger[0] + j    
         finger_distance.append(raw_aligned_depth[max_x][max_y]-raw_aligned_depth[min_x][min_y])
     count = 0
+    cv.circle(img2,(520,365),3,(0,0,0),-1)
     touching = []
+    is_touched = 0
     for dist,name in zip(finger_distance,finger_names):
         if(dist < 10):
             count = count + 1
             touching.append(name)
+            if(name == "index"):
+                is_touched = 1
     #print(str(count)+ "/" + str(len(finger_distance)))
-    print(touching)
+    print(touching,is_touched)
+    p, q = coordinates_kinect_to_gui(index[0],index[1])
+    send_string = str(p) + "," + str(q) + "," + str(is_touched) 
+    sock.sendto(str(send_string), (UDP_IP, UDP_PORT))
     cv.imshow("contour",skinMask2)
     cv.imshow("skin_2",skin_2)
     cv.imshow("img2",img2)
@@ -291,11 +302,12 @@ cv.createTrackbar('dmin','img2', min ,200, change_min)
 cv.createTrackbar('dmax','img2', max ,200, change_max)
 
 while(1):
+    start = time.time()
     update()
+    end =  time.time()
+    print("FPS: ",1.0/(end - start))
     k = cv.waitKey(5) & 0xFF
     if k == 27:
         break
 
 cv.destroyAllWindows()        
-
-
