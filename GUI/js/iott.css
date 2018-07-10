@@ -1,5 +1,5 @@
 .btn-group button {
-    background-color: coral;
+    background-color: rgb(226, 83, 31);
     border: none; /* Green border */
     color: white; /* White text */
    /* height: 100%;
@@ -14,44 +14,50 @@
     position: absolute;
     width: 250px;
     height: 320px;
-    background: none;
+    background:transparent;
     
     transform: translate(-50%, -50%);
 }
-.home{
-    top: 180px;
-    left:320px;
-    width: 600px;
+.Lock{
+    top: 290px;
+    left:310px;
+    width:640px;
+    height:640px;
     
 }
 .light{
     top: 180px;
-    left: 745px;
-    
+    left: 650px;
+    width: 300px;
 }
 
-
 .fan{
-    top: 180px;
-    left: 995px;
+    top: 200px;
+    left: 1000px;
 }
 
 .cooler{
-    top: 180px;
-    left: 1245px;
+    top: 500px;
+    left: 690px;
 }
 
 .music{
-    position: absolute;
+    width:220px;
     top: 500px;
-    left:245px;
+    left:995px;
+    
+}
+.date{
+    top: 500px;
+    left:225px;
     
 }
 
-.weather-time{
-    top: 500px;
-    left:745px;
-    
+.musicapp{
+    top: 340px;
+    left:1360px;
+    width: 400px;
+    height: 700px;
 }
 /* THE CARD HOLDS THE FRONT AND BACK FACES */
 
@@ -67,11 +73,6 @@
 }
 
 /* THE PSUEDO CLASS CONTROLS THE FLIP ON MOUSEOVER AND MOUSEOUT */
-
-.thecard:hover {
-    transform: rotateY(180deg);
-}
-
 /* THE FRONT FACE OF THE CARD, WHICH SHOWS BY DEFAULT */
 
 .thefront {
@@ -124,85 +125,39 @@
     font-size: 20px;
     text-align: center;
 }
-.fH{
-    background-image: url(home.jpeg);
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.bH{background-image: url(home2.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-}
 .fL{
-    background-color: chartreuse;
-    background-image: url(idea.svg);
-    background-size:contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-color: transparent;
 }
-.bL{
-    background-color: cornflowerblue;
-    background-image: url(light-bulb.svg);
-    background-size:contain;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-/*
-#L1,#L2,#L3{
-    padding-top: 40px;
-    color: red;
-    background-color: inherit;
-    text-shadow: ;
-    box-shadow: ;
-    border: none;
-    text-decoration-color: darkgrey;
-    font-size: 20px;
-}
-#L1:hover,#L2:hover,#L3:hover{
-    background: #f44336;
-    color: white;
-    font-size: 35px;
-    border: none;
-}*/
 
 .fF{
-    background-color: darkturquoise;
-    background-image: url(fan.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-color:transparent;
 }
-.bF{
-    background-color: cornsilk;
-    background-image: url(fan2.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-}
+
 .fM{
-    background-color: darkgrey;
-    background-image: url(music.svg);
+    background-color: transparent;
+    background-image: url(headphones.svg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center
 }
-.bM{background-color: burlywood;
-    background-image: url(headphones.svg);
+
+.fLO{background-color: transparent;  
+}
+
+.fC{background-color: transparent;
+    background-image: url(coolerf.svg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center
     
 }
-.bw{background-color: burlywood;
-    background-image: url(headphones.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center
-    
+
+.fMA{background-color: transparent;    
 }
 
 .slidecontainer {
-    top:40px;
+    top:60px;
+    position: absolute;
     width: 100%; /* Width of the outside container */
 }
 
@@ -212,7 +167,8 @@
     appearance: none;
     width: 100%; /* Full-width */
     height: 25px; /* Specified height */
-    background: #028; 
+    top: 50px;
+    background: rgb(2, 8, 29); 
     outline: none; /* Remove outline */
     opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
     -webkit-transition: .2s; /* 0.2 seconds transition on hover */
@@ -408,79 +364,7 @@ body {
 
 
 
-.circle {
-    margin-left: 20px;
-    position:relative;
-    display:inline-block;
-    width:100px;
-    height:100px;
-    border-radius:50%;
-    overflow:hidden;
-    animation-name: spin;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
 
-@keyframes spin {
-  from {
-    transform:rotate(0deg);
-  }
-  to {
-    transform:rotate(360deg);
-  }
-}
-
-.circle:before, .circle:after, .circle > div:before, .circle > div:after {
-    content:'';
-    position:absolute;
-    z-index:-1;
-}
-.circle:before {
-    bottom:50%;
-    left:50%;
-    margin-left:5px;
-    margin-bottom:4px;
-    border-top: 100px solid transparent;
-    border-right:50px solid grey;
-}
-.circle:after{
-    top:50%;
-    left:50%;
-    margin-left:5px;
-    margin-top:4px;
-    border-right:50px solid gold;
-    border-bottom:100px solid transparent;
-}
-.sector1:before {
-    bottom:50%;
-    right:50%;
-    margin-right:5px;
-    margin-bottom:4px;
-    border-top: 100px solid transparent;
-    border-left:50px solid black;
-}
-.sector1:after {
-    bottom:50%;
-    margin-bottom:10px;
-    border-top: 100px solid purple;
-    border-right:50px solid transparent;
-    border-left:50px solid transparent;
-}
-.sector2:before {
-    top:50%;
-    right:50%;
-    margin-right:5px;
-    margin-top:4px;
-    border-bottom:100px solid transparent;
-    border-left:50px solid green;
-}
-.sector2:after {
-    top:50%;
-    margin-top:10px;
-    border-right:50px solid transparent;
-    border-bottom:100px solid brown;
-    border-left:50px solid transparent;
-}
 .round-middle{
     position:absolute;
     top:100px; left:100px;
@@ -489,26 +373,18 @@ body {
     border-radius:50%;
     background:blue;
 }
+ 
 
-.btn_wrap {
-  margin-top: 5px;
-  margin-left: 20px;   
-} 
+.clock {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #17D4FE;
+    font-size: 60px;
+    font-family: Orbitron;
+    letter-spacing: 7px;
 
-.btn {
-  display: inline-block;
-  margin-right: 15px;
-  text-align: center;
-  width: 25px;
-  height: 25px;
-  background: black;
-  -webkit-border-radius: 28;
-  -moz-border-radius: 28;
-  border-radius: 50%;
-  color: #ffffff;
-  font-size: 15px;
-  text-decoration: none;
+
 }
-.current {
-    background: red;
-} 
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
